@@ -1,0 +1,14 @@
+uuid: 6eb347b5-e533-4d51-beb7-bf787f39998b
+name: 'The LOG Rosters'
+mail: admin@example.com
+slogan: ''
+page:
+  403: /user/login
+  404: ''
+  front: /user
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

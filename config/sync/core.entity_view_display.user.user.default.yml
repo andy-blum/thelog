@@ -1,0 +1,84 @@
+uuid: 2aeffd6c-5189-4cc0-b9c7-3b014de960b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.feeds_item
+    - field.field.user.user.field_contract_cap_remaining
+    - field.field.user.user.field_espn_abbr
+    - field.field.user.user.field_espn_id
+    - field.field.user.user.field_espn_name
+    - field.field.user.user.field_rank
+    - field.field.user.user.field_record
+    - field.field.user.user.field_salary_cap_remaining
+    - field.field.user.user.field_seed
+    - field.field.user.user.field_total_contract_years
+    - field.field.user.user.field_total_contracts
+    - field.field.user.user.field_total_salary
+  module:
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_rank:
+    type: number_integer
+    weight: 0
+    region: content
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_record:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_total_contract_years:
+    weight: 53
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_total_contracts:
+    weight: 52
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_total_salary:
+    weight: 51
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  masquerade:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  feeds_item: true
+  field_contract_cap_remaining: true
+  field_espn_abbr: true
+  field_espn_id: true
+  field_espn_name: true
+  field_salary_cap_remaining: true
+  field_seed: true
+  member_for: true

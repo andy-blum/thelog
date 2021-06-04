@@ -1,0 +1,20 @@
+uuid: 88ae6534-041f-4228-a9e1-938a4ba8dbb8
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_bye_week
+field_name: field_bye_week
+entity_type: taxonomy_term
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

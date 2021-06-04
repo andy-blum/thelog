@@ -1,0 +1,14 @@
+uuid: 743175e6-7992-4306-9a80-94ab36cfe2c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.commissioner
+  module:
+    - user
+id: user_remove_role_action.commissioner
+label: 'Remove the Commissioner role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: commissioner

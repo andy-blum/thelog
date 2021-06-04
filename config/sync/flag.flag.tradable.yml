@@ -1,0 +1,30 @@
+uuid: c1ac6c64-04fc-450e-91f5-704884d57730
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: tradable
+label: Tradable
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Put on Trade Block'
+flag_long: 'Add Tradable'
+flag_message: ''
+unflag_short: 'Remove from Trade Block'
+unflag_long: 'Remove Tradable'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig: {  }

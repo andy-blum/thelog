@@ -1,0 +1,20 @@
+uuid: ad675929-d2d8-4af0-8e1a-236868603272
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_espn_id
+  module:
+    - user
+id: user.user.field_espn_id
+field_name: field_espn_id
+entity_type: user
+bundle: user
+label: 'ESPN ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

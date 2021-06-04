@@ -1,0 +1,15 @@
+uuid: d65e156d-3f5e-44e6-9b13-a3d6c69a9ac8
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.watchlist
+  module:
+    - flag
+id: flag_action.watchlist_flag
+label: Watch
+type: node
+plugin: 'flag_action:watchlist_flag'
+configuration:
+  flag_id: watchlist
+  flag_action: flag

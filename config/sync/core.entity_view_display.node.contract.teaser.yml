@@ -1,0 +1,70 @@
+uuid: e41b1d23-45ea-4ffd-8539-9f606dc525a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.contract.feeds_item
+    - field.field.node.contract.field_player
+    - field.field.node.contract.field_salary
+    - field.field.node.contract.field_status
+    - field.field.node.contract.field_years_remaining
+    - node.type.contract
+  module:
+    - user
+id: node.contract.teaser
+targetEntityType: node
+bundle: contract
+mode: teaser
+content:
+  field_salary:
+    type: number_decimal
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+  field_years_remaining:
+    type: number_integer
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+  flag_contract_needs_attention:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_franchise_tag:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_tradable:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_untouchable:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_waived:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  feeds_item: true
+  field_player: true
+  field_status: true
+  flag_watchlist: true
+  links: true

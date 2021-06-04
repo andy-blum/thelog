@@ -1,0 +1,22 @@
+uuid: 079ff072-7d46-4f79-9d12-9e24ae6bb400
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - thelog
+_core:
+  default_config_hash: q7iXXMfeIQEtfCtaXnPyZ1YRcYvdouygfzuL9YQlbTE
+id: thelog_breadcrumbs
+theme: thelog
+region: content
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

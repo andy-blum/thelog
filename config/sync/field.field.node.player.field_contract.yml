@@ -1,0 +1,29 @@
+uuid: e6a044e0-d1a8-4828-a2d9-e9c3a4432d9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contract
+    - node.type.contract
+    - node.type.player
+id: node.player.field_contract
+field_name: field_contract
+entity_type: node
+bundle: player
+label: Contract
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      contract: contract
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: fe5d9d9b-8e69-4519-a36c-50426c0e9975
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: contract_needs_attention
+label: 'Contract Needs Attention'
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: Highlight
+flag_long: 'Mark contract as needing attention'
+flag_message: ''
+unflag_short: Unhighlight
+unflag_long: 'Unmark contract as needing attention'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

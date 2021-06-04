@@ -1,0 +1,28 @@
+uuid: 7a98b46f-ed25-41e0-b689-a6c47590cbd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bid.field_bid_dts
+    - field.field.node.bid.field_bid_salary
+    - field.field.node.bid.field_bid_years
+    - field.field.node.bid.field_player
+    - node.type.bid
+  module:
+    - user
+id: node.bid.teaser
+targetEntityType: node
+bundle: bid
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_bid_dts: true
+  field_bid_salary: true
+  field_bid_years: true
+  field_player: true

@@ -1,0 +1,23 @@
+uuid: fcdbd71e-8a98-4147-a2de-42de03ab5257
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_roster_order
+    - taxonomy.vocabulary.eligible_positions
+id: taxonomy_term.eligible_positions.field_roster_order
+field_name: field_roster_order
+entity_type: taxonomy_term
+bundle: eligible_positions
+label: 'Roster Order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

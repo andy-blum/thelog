@@ -1,0 +1,17 @@
+uuid: f6b58054-4506-4bd5-a3ce-36c031cfbee7
+langcode: en
+status: true
+dependencies: {  }
+id: fa_period_dates
+label: 'FA Period Dates'
+context:
+  show_warning: true
+  group:
+    language: false
+  fallback:
+    language: ''
+menu:
+  path: /admin/content/fa-deadlines
+  weight: 0
+  description: ''
+token: false

@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "Theme Root",
+			"path": "./web/themes/custom/thelog"
+		},
+		{
+			"name": "Modules",
+			"path": "./web/modules"
+		},
+		{
+			"name": "Project Root",
+			"path": "."
+		},
+		{
+			"name": "ESPN Scraper",
+			"path": "./scraper"
+		}
+	]
+}

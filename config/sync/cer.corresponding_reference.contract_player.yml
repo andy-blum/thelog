@@ -1,0 +1,13 @@
+uuid: 80a8dd85-ea14-4a56-b4dc-727772e934dd
+langcode: en
+status: true
+dependencies: {  }
+id: contract_player
+label: Contract-Player
+enabled: true
+first_field: field_player
+second_field: field_contract
+bundles:
+  node:
+    - contract
+    - player

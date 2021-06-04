@@ -1,0 +1,24 @@
+uuid: 4e4c4dcb-4e0b-45bf-a031-77d50af101b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.fa_period_dates
+    - field.field.config_pages.fa_period_dates.field_fa_deadlines
+  module:
+    - datetime
+id: config_pages.fa_period_dates.default
+targetEntityType: config_pages
+bundle: fa_period_dates
+mode: default
+content:
+  field_fa_deadlines:
+    weight: 0
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

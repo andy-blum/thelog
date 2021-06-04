@@ -1,0 +1,20 @@
+uuid: 0ab8ac0e-9dda-4f1b-8922-346e9d230f4a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_injury_status
+field_name: field_injury_status
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

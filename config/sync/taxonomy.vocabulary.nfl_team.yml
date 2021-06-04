@@ -1,0 +1,8 @@
+uuid: ab08f485-b2ce-455c-901e-b5509b6593b6
+langcode: en
+status: true
+dependencies: {  }
+name: 'NFL Team'
+vid: nfl_team
+description: ''
+weight: 0

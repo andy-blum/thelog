@@ -1,0 +1,22 @@
+uuid: 15979e3a-6357-4a0a-8a10-e2523120bdaa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uikit
+_core:
+  default_config_hash: f6AkNI4r7jL76Kgh6bq5U7XsSztsacNaWg6chHqYIVw
+id: uikit_breadcrumbs
+theme: uikit
+region: content
+weight: -5
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 2310de3a-bfd2-468b-8678-eadcd994a700
+langcode: en
+status: true
+dependencies:
+  theme:
+    - uikit
+_core:
+  default_config_hash: f_lSPUbhAS6iGYOBbxd3HrBqWjbOxfgTLSs-aA2fm2U
+id: uikit_local_actions
+theme: uikit
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

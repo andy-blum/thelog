@@ -1,0 +1,21 @@
+uuid: ae2e7519-8563-4fba-aefb-427ab01fa67b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_raw_stats
+    - node.type.player
+  module:
+    - json_field
+id: node.player.field_raw_stats
+field_name: field_raw_stats
+entity_type: node
+bundle: player
+label: 'Raw Stats'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: json_native

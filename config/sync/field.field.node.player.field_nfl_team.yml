@@ -1,0 +1,29 @@
+uuid: 7c2b39a4-b260-4661-bdc4-bf7bbdf805b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nfl_team
+    - node.type.player
+    - taxonomy.vocabulary.nfl_team
+id: node.player.field_nfl_team
+field_name: field_nfl_team
+entity_type: node
+bundle: player
+label: 'NFL Team'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      nfl_team: nfl_team
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

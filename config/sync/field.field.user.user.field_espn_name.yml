@@ -1,0 +1,20 @@
+uuid: 9b1d05c9-1560-4cda-8ca8-0fc9be372c38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_espn_name
+  module:
+    - user
+id: user.user.field_espn_name
+field_name: field_espn_name
+entity_type: user
+bundle: user
+label: 'ESPN Name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

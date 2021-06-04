@@ -1,0 +1,13 @@
+uuid: 4897a429-0152-4054-a3f6-05f8bfaeced1
+langcode: en
+status: true
+dependencies: {  }
+id: commissioner
+label: Commissioner
+weight: 3
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'flag contract_needs_attention'
+  - 'unflag contract_needs_attention'
+  - 'unflag franchise_tag other items'

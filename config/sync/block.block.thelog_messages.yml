@@ -1,0 +1,22 @@
+uuid: 27c09e5f-a71c-42ab-bee9-891de0756423
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - thelog
+_core:
+  default_config_hash: SAf2t8XS_o-VMwEf17ArgxDOWQTu4-siSWxYRF0RHoA
+id: thelog_messages
+theme: thelog
+region: content
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,15 @@
+uuid: 59aa9908-6551-4fdf-8066-c12fd2410f61
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.tradable
+  module:
+    - flag
+id: flag_action.tradable_flag
+label: Flag
+type: node
+plugin: 'flag_action:tradable_flag'
+configuration:
+  flag_id: tradable
+  flag_action: flag

@@ -1,0 +1,20 @@
+uuid: 6e574dc5-2255-4d93-9295-61fc78b743e9
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_rank
+field_name: field_rank
+entity_type: user
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

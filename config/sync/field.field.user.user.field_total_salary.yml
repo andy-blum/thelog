@@ -1,0 +1,24 @@
+uuid: 5f932d50-6fee-41e5-a001-3c4a70b87587
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_total_salary
+  module:
+    - user
+id: user.user.field_total_salary
+field_name: field_total_salary
+entity_type: user
+bundle: user
+label: 'Total Salary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

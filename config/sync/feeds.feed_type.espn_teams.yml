@@ -1,0 +1,143 @@
+uuid: 234a071f-8555-45ed-a711-68b1234961a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_espn_abbr
+    - field.field.user.user.field_espn_id
+    - field.field.user.user.field_espn_name
+    - field.field.user.user.field_rank
+    - field.field.user.user.field_record
+    - field.field.user.user.field_seed
+  module:
+    - feeds_ex
+    - user
+id: espn_teams
+label: 'ESPN Teams'
+description: ''
+help: ''
+import_period: 86400
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: json
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*'
+  sources:
+    teamid:
+      label: teamID
+      value: teamID
+    name:
+      label: name
+      value: name
+    abbr:
+      label: abbr
+      value: abbr
+    finalstandingsposition:
+      label: finalStandingsPosition
+      value: finalStandingsPosition
+    playoffseed:
+      label: playoffSeed
+      value: playoffSeed
+    record:
+      label: record
+      value: record
+  display_errors: false
+  source_encoding:
+    - auto
+  debug_mode: false
+  line_limit: 100
+processor: 'entity:user'
+processor_configuration:
+  langcode: en
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  skip_hash_check: false
+  owner_id: 0
+  values: {  }
+  authorize: false
+  owner_feed_author: false
+custom_sources:
+  teamid:
+    label: teamID
+    value: teamID
+    machine_name: teamid
+  name:
+    label: name
+    value: name
+    machine_name: name
+  abbr:
+    label: abbr
+    value: abbr
+    machine_name: abbr
+  finalstandingsposition:
+    label: finalStandingsPosition
+    value: finalStandingsPosition
+    machine_name: finalstandingsposition
+  playoffseed:
+    label: playoffSeed
+    value: playoffSeed
+    machine_name: playoffseed
+  record:
+    label: record
+    value: record
+    machine_name: record
+  email:
+    label: email
+    value: email
+    machine_name: email
+mappings:
+  -
+    target: field_espn_id
+    map:
+      value: teamid
+    unique:
+      value: '1'
+    settings:
+      language: null
+  -
+    target: field_espn_name
+    map:
+      value: name
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_espn_abbr
+    map:
+      value: abbr
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_rank
+    map:
+      value: finalstandingsposition
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_seed
+    map:
+      value: playoffseed
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_record
+    map:
+      value: record
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: name
+    map:
+      value: name
+    unique: {  }
+    settings: {  }

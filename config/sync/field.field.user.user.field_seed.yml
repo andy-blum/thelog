@@ -1,0 +1,24 @@
+uuid: fcbc05f0-4431-4b24-b993-bf7abe3a03a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_seed
+  module:
+    - user
+id: user.user.field_seed
+field_name: field_seed
+entity_type: user
+bundle: user
+label: Seed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

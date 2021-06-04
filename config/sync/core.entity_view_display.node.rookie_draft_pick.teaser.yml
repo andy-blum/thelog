@@ -1,0 +1,26 @@
+uuid: 53b4ab76-e3c9-45df-928e-55bfd5736035
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.rookie_draft_pick.field_original_owner
+    - field.field.node.rookie_draft_pick.field_round
+    - field.field.node.rookie_draft_pick.field_year
+    - node.type.rookie_draft_pick
+  module:
+    - user
+id: node.rookie_draft_pick.teaser
+targetEntityType: node
+bundle: rookie_draft_pick
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_original_owner: true
+  field_round: true
+  field_year: true

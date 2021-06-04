@@ -1,0 +1,9 @@
+status: 1
+pattern: '[node:field_original_owner:entity:field_espn_abbr] - [node:field_year], Round [node:field_round]'
+escape: false
+preserve_titles: false
+save: 0
+chunk: '50'
+dependencies:
+  config:
+    - node.type.rookie_draft_pick

@@ -1,0 +1,15 @@
+uuid: bdf29621-b8bc-4761-9d5f-0ca11dd7ddbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.injured_reserve
+  module:
+    - flag
+id: flag_action.injured_reserve_flag
+label: 'Move to IR'
+type: node
+plugin: 'flag_action:injured_reserve_flag'
+configuration:
+  flag_id: injured_reserve
+  flag_action: flag

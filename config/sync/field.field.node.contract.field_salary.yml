@@ -1,0 +1,23 @@
+uuid: 803123d8-c555-47e6-9c1b-561fdcee2e17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_salary
+    - node.type.contract
+id: node.contract.field_salary
+field_name: field_salary
+entity_type: node
+bundle: contract
+label: Salary
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 1000
+  prefix: $
+  suffix: ''
+field_type: float

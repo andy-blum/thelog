@@ -1,0 +1,15 @@
+uuid: 87ff9334-315d-4226-8e5b-fe57159d7f90
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.injured_reserve
+  module:
+    - flag
+id: flag_action.injured_reserve_unflag
+label: 'Reinstate from IR'
+type: node
+plugin: 'flag_action:injured_reserve_unflag'
+configuration:
+  flag_id: injured_reserve
+  flag_action: unflag

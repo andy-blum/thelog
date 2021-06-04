@@ -1,0 +1,14 @@
+uuid: 7e5a39e7-5ba2-499e-9186-aa09db58ecab
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - webform
+_core:
+  default_config_hash: WRpxpwYpfcO_i0so7BV4QXxXlbPiSVppYmAV6DAz4c0
+id: sex
+label: Sex
+category: Demographic
+likert: false
+options: "Male: Male\nFemale: Female\n"

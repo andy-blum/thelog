@@ -1,0 +1,11 @@
+uuid: 852ca660-049b-4909-9ee4-396e88157830
+langcode: en
+status: true
+dependencies: {  }
+name: 'Rookie Draft Pick'
+type: rookie_draft_pick
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

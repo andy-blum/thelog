@@ -1,0 +1,26 @@
+uuid: 5bc3ab0e-58ae-4da2-b0f4-101642e7330e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_contract_cap_remaining
+  module:
+    - user
+id: user.user.field_contract_cap_remaining
+field_name: field_contract_cap_remaining
+entity_type: user
+bundle: user
+label: 'Contract Cap Remaining'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 100
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

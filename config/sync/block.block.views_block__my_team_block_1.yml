@@ -1,0 +1,30 @@
+uuid: 93fdb2ef-8e36-40ad-8504-bad3893dcf25
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_team
+  module:
+    - system
+    - views
+  theme:
+    - thelog
+id: views_block__my_team_block_1
+theme: thelog
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:my_team-block_1'
+settings:
+  id: 'views_block:my_team-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false

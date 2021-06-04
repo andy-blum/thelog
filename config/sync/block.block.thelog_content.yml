@@ -1,0 +1,22 @@
+uuid: 9f8a0625-1a97-4bc9-a6e6-583240537110
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - thelog
+_core:
+  default_config_hash: N7P2XgcD5RzW8A4f5L-1OAJ1PxTRM63exjZsMQslJKo
+id: thelog_content
+theme: thelog
+region: content
+weight: 1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

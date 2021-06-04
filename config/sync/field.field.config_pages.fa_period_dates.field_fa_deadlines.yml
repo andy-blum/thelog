@@ -1,0 +1,21 @@
+uuid: c6b65fe8-8343-440b-9f33-43f19034c5b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.fa_period_dates
+    - field.storage.config_pages.field_fa_deadlines
+  module:
+    - datetime
+id: config_pages.fa_period_dates.field_fa_deadlines
+field_name: field_fa_deadlines
+entity_type: config_pages
+bundle: fa_period_dates
+label: 'FA Deadlines'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

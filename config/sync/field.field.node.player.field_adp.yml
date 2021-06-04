@@ -1,0 +1,23 @@
+uuid: 34b8a5c3-1f43-46f8-9320-969d1819c5da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_adp
+    - node.type.player
+id: node.player.field_adp
+field_name: field_adp
+entity_type: node
+bundle: player
+label: ADP
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

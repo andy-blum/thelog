@@ -1,0 +1,76 @@
+uuid: d2ba3aae-901d-4ebd-b0a8-b281cff7c9cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.player.feeds_item
+    - field.field.node.player.field_adp
+    - field.field.node.player.field_contract
+    - field.field.node.player.field_espn_id
+    - field.field.node.player.field_first_name
+    - field.field.node.player.field_injury_status
+    - field.field.node.player.field_is_rookie
+    - field.field.node.player.field_last_name
+    - field.field.node.player.field_nfl_team
+    - field.field.node.player.field_position
+    - field.field.node.player.field_projected_stats
+    - field.field.node.player.field_raw_stats
+    - node.type.player
+  module:
+    - user
+id: node.player.teaser
+targetEntityType: node
+bundle: player
+mode: teaser
+content:
+  field_first_name:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_injury_status:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_nfl_team:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_position:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  feeds_item: true
+  field_adp: true
+  field_contract: true
+  field_espn_id: true
+  field_is_rookie: true
+  field_projected_stats: true
+  field_raw_stats: true
+  flag_watchlist: true
+  links: true

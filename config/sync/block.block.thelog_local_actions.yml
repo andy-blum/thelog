@@ -1,0 +1,20 @@
+uuid: 793c8b95-437c-4163-b9d4-a9130da4d617
+langcode: en
+status: true
+dependencies:
+  theme:
+    - thelog
+_core:
+  default_config_hash: 27JCzn9nlPlQtKpi1y9vFsdMe4U7TueEY_xXuuz24Fc
+id: thelog_local_actions
+theme: thelog
+region: content
+weight: -2
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

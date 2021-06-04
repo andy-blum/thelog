@@ -1,0 +1,15 @@
+uuid: 9d96c778-c134-4fb5-bb2f-fdda0244e915
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.contract_needs_attention
+  module:
+    - flag
+id: flag_action.contract_needs_attention_flag
+label: Flag
+type: node
+plugin: 'flag_action:contract_needs_attention_flag'
+configuration:
+  flag_id: contract_needs_attention
+  flag_action: flag

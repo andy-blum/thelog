@@ -1,0 +1,19 @@
+uuid: c6182fa5-0b1c-4d81-aa44-f567e1063590
+langcode: en
+status: true
+dependencies:
+  module:
+    - json_field
+    - node
+id: node.field_projected_stats
+field_name: field_projected_stats
+entity_type: node
+type: json_native
+settings: {  }
+module: json_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

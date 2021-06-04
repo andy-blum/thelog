@@ -1,0 +1,20 @@
+uuid: da020df8-c147-4d1b-bbb3-fcd1dfa1ee70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_espn_abbr
+  module:
+    - user
+id: user.user.field_espn_abbr
+field_name: field_espn_abbr
+entity_type: user
+bundle: user
+label: 'ESPN Abbr'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

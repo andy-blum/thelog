@@ -1,0 +1,23 @@
+uuid: 4d54a8c0-7771-4f37-801a-fd2c34f66eb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_round
+    - node.type.rookie_draft_pick
+id: node.rookie_draft_pick.field_round
+field_name: field_round
+entity_type: node
+bundle: rookie_draft_pick
+label: Round
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

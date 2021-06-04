@@ -1,0 +1,14 @@
+uuid: 5f35e6b8-6596-4196-8c44-98de19507c9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.commissioner
+  module:
+    - user
+id: user_add_role_action.commissioner
+label: 'Add the Commissioner role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: commissioner

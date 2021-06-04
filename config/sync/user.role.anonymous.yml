@@ -1,0 +1,11 @@
+uuid: 2662833e-097a-47c6-bf8b-6dc4f8105978
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions: {  }

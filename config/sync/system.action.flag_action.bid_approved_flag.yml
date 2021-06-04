@@ -1,0 +1,15 @@
+uuid: ff993e9f-7b41-4881-b574-361dfe95facc
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.bid_approved
+  module:
+    - flag
+id: flag_action.bid_approved_flag
+label: 'Approve Bid'
+type: node
+plugin: 'flag_action:bid_approved_flag'
+configuration:
+  flag_id: bid_approved
+  flag_action: flag

@@ -1,0 +1,15 @@
+uuid: 9a2cfa53-7c11-4fa2-822b-d5bb73bb2b6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.untouchable
+  module:
+    - flag
+id: flag_action.untouchable_unflag
+label: 'Make Touchable'
+type: node
+plugin: 'flag_action:untouchable_unflag'
+configuration:
+  flag_id: untouchable
+  flag_action: unflag

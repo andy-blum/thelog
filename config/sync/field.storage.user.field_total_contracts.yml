@@ -1,0 +1,20 @@
+uuid: b78c2325-e7c7-4aab-b53a-ab8c26160104
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_total_contracts
+field_name: field_total_contracts
+entity_type: user
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

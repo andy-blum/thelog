@@ -1,0 +1,23 @@
+uuid: b4d8219a-cd52-418e-9141-696c1eca585f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_bye_week
+    - taxonomy.vocabulary.nfl_team
+id: taxonomy_term.nfl_team.field_bye_week
+field_name: field_bye_week
+entity_type: taxonomy_term
+bundle: nfl_team
+label: 'Bye Week'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 18
+  prefix: ''
+  suffix: ''
+field_type: integer

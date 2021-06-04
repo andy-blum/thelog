@@ -1,0 +1,199 @@
+uuid: 3d14c248-14d5-47c0-a04e-eafa7ebcd0b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.player.field_adp
+    - field.field.node.player.field_espn_id
+    - field.field.node.player.field_first_name
+    - field.field.node.player.field_injury_status
+    - field.field.node.player.field_is_rookie
+    - field.field.node.player.field_last_name
+    - field.field.node.player.field_nfl_team
+    - field.field.node.player.field_position
+    - node.type.player
+  module:
+    - feeds_ex
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_tamper:
+    tampers:
+      e0d6bbef-cb9c-433c-961e-7c9fbe186175:
+        default_value: FA
+        only_if_empty: true
+        plugin: default_value
+        source: player_proteamabbreviation
+        weight: 0
+        label: 'Set value or default value'
+        uuid: e0d6bbef-cb9c-433c-961e-7c9fbe186175
+      fc3948b8-7cfa-4472-a049-0c6de3d66a7a:
+        operation: ucfirst
+        plugin: convert_case
+        source: player_injurystatus
+        weight: -9
+        label: 'Convert case'
+        uuid: fc3948b8-7cfa-4472-a049-0c6de3d66a7a
+      7c1ed8f4-fd9d-4a15-a8eb-10f58c4117fe:
+        default_value: Unknown
+        only_if_empty: true
+        plugin: default_value
+        source: player_injurystatus
+        weight: -10
+        label: 'Set value or default value'
+        uuid: 7c1ed8f4-fd9d-4a15-a8eb-10f58c4117fe
+      c2c16b2d-a7e0-4a66-9522-e1f7ee7284a6:
+        plugin: array_filter
+        source: player_eligiblepositions
+        weight: 0
+        label: 'Filter items'
+        uuid: c2c16b2d-a7e0-4a66-9522-e1f7ee7284a6
+id: player_file_import
+label: 'Player File Import'
+description: ''
+help: ''
+import_period: 86400
+fetcher: directory
+fetcher_configuration:
+  allowed_extensions: json
+  allowed_schemes:
+    public: public
+  recursive_scan: false
+parser: jsonpath
+parser_configuration:
+  context:
+    value: '$.*'
+  sources:
+    player_firstname:
+      label: player.firstName
+      value: player.firstName
+    player_lastname:
+      label: player.lastName
+      value: player.lastName
+    player_id:
+      label: player.id
+      value: player.id
+    player_eligiblepositions:
+      label: player.eligiblePositions
+      value: player.eligiblePositions
+    player_proteamabbreviation:
+      label: player.proTeamAbbreviation
+      value: player.proTeamAbbreviation
+    player_injurystatus:
+      label: player.injuryStatus
+      value: player.injuryStatus
+    player_averagedraftposition:
+      label: player.averageDraftPosition
+      value: player.averageDraftPosition
+    player_rookie:
+      label: player.rookie
+      value: player.rookie
+  display_errors: false
+  source_encoding:
+    - auto
+  debug_mode: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  langcode: en
+  update_existing: 2
+  update_non_existent: _keep
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+  authorize: false
+  skip_hash_check: false
+  values:
+    type: player
+custom_sources:
+  player_firstname:
+    label: player.firstName
+    value: player.firstName
+    machine_name: player_firstname
+  player_lastname:
+    label: player.lastName
+    value: player.lastName
+    machine_name: player_lastname
+  player_id:
+    label: player.id
+    value: player.id
+    machine_name: player_id
+  player_eligiblepositions:
+    label: player.eligiblePositions
+    value: player.eligiblePositions
+    machine_name: player_eligiblepositions
+  player_proteamabbreviation:
+    label: player.proTeamAbbreviation
+    value: player.proTeamAbbreviation
+    machine_name: player_proteamabbreviation
+  player_injurystatus:
+    label: player.injuryStatus
+    value: player.injuryStatus
+    machine_name: player_injurystatus
+  player_averagedraftposition:
+    label: player.averageDraftPosition
+    value: player.averageDraftPosition
+    machine_name: player_averagedraftposition
+  player_rookie:
+    label: player.rookie
+    value: player.rookie
+    machine_name: player_rookie
+mappings:
+  -
+    target: field_first_name
+    map:
+      value: player_firstname
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_last_name
+    map:
+      value: player_lastname
+    unique: {  }
+    settings:
+      language: null
+  -
+    target: field_espn_id
+    map:
+      value: player_id
+    unique:
+      value: '1'
+    settings:
+      language: null
+  -
+    target: field_position
+    map:
+      target_id: player_eligiblepositions
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_nfl_team
+    map:
+      target_id: player_proteamabbreviation
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_injury_status
+    map:
+      target_id: player_injurystatus
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: '1'
+  -
+    target: field_adp
+    map:
+      value: player_averagedraftposition
+    settings:
+      language: null
+  -
+    target: field_is_rookie
+    map:
+      value: player_rookie
+    settings:
+      language: null

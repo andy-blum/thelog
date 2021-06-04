@@ -1,0 +1,37 @@
+uuid: 10e8a626-b28c-4504-93d4-f98a1957ab9d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: terminate_contract
+label: 'Terminate Contract'
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: Terminate
+flag_long: ''
+flag_message: ''
+unflag_short: Un-Terminate
+unflag_long: 'If you can see this someone done fucked up.'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Are you sure you want to terminate this contract?'
+  unflag_confirmation: 'Are you sure you want to un-terminate this contract?'
+  flag_create_button: Terminate
+  flag_delete_button: Un-terminate
+  form_behavior: default
+  edit_flagging: 'Edit flagging details'
+  flag_update_button: 'Update flagging'

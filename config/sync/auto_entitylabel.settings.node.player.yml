@@ -1,0 +1,9 @@
+status: 1
+pattern: '[node:field_first_name] [node:field_last_name] ([node:field_position:0:entity:name], [node:field_nfl_team:entity:name])'
+escape: false
+preserve_titles: false
+save: 1
+chunk: '50'
+dependencies:
+  config:
+    - node.type.player

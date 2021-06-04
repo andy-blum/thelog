@@ -1,0 +1,173 @@
+uuid: cdf044a5-8344-4123-9722-026f48644a8f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.player.feeds_item
+    - field.field.node.player.field_adp
+    - field.field.node.player.field_contract
+    - field.field.node.player.field_espn_id
+    - field.field.node.player.field_first_name
+    - field.field.node.player.field_injury_status
+    - field.field.node.player.field_is_rookie
+    - field.field.node.player.field_last_name
+    - field.field.node.player.field_nfl_team
+    - field.field.node.player.field_position
+    - field.field.node.player.field_projected_stats
+    - field.field.node.player.field_raw_stats
+    - node.type.player
+  module:
+    - json_field
+    - path
+id: node.player.default
+targetEntityType: node
+bundle: player
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_adp:
+    weight: 130
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_contract:
+    weight: 121
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_espn_id:
+    weight: 124
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_first_name:
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_injury_status:
+    weight: 129
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_is_rookie:
+    weight: 131
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_last_name:
+    weight: 123
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_nfl_team:
+    weight: 127
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_position:
+    weight: 128
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_projected_stats:
+    weight: 126
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: json_textarea
+    region: content
+  field_raw_stats:
+    weight: 125
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: json_textarea
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden:
+  feeds_item: true

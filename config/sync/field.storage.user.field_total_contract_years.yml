@@ -1,0 +1,20 @@
+uuid: 2f1346f3-33cf-48c3-b8d6-ce1a94fc6f48
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_total_contract_years
+field_name: field_total_contract_years
+entity_type: user
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

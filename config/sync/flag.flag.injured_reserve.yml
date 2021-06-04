@@ -1,0 +1,35 @@
+uuid: ea5648e0-5042-4594-8465-5d506f6a81ae
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: injured_reserve
+label: 'Injured Reserve'
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Move to IR'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Reinstate from IR'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Move this contract to IR?'
+  unflag_confirmation: 'Reinstate this contract from IR?'
+  flag_create_button: 'Move to IR'
+  flag_delete_button: Reinstate
+  form_behavior: default

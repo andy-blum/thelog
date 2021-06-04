@@ -1,0 +1,20 @@
+uuid: fcc812ea-04dc-4da7-966d-c91f4de5f962
+langcode: en
+status: true
+dependencies:
+  module:
+    - config_pages
+    - datetime
+id: config_pages.field_fa_deadlines
+field_name: field_fa_deadlines
+entity_type: config_pages
+type: datetime
+settings:
+  datetime_type: datetime
+module: datetime
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

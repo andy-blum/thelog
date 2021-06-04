@@ -1,0 +1,31 @@
+uuid: 76ab464d-3880-4216-8a6f-1ec7e4317ac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.eligible_positions.field_roster_order
+    - taxonomy.vocabulary.eligible_positions
+  module:
+    - text
+id: taxonomy_term.eligible_positions.default
+targetEntityType: taxonomy_term
+bundle: eligible_positions
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_roster_order:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

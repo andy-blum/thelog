@@ -1,0 +1,15 @@
+uuid: 95ca4f02-2f0e-49f7-92e0-ef31afa117b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.terminate_contract
+  module:
+    - flag
+id: flag_action.terminate_contract_flag
+label: Terminate
+type: node
+plugin: 'flag_action:terminate_contract_flag'
+configuration:
+  flag_id: terminate_contract
+  flag_action: flag

@@ -1,0 +1,22 @@
+uuid: 16a518bb-f768-4e53-9b34-6bf93c0db8ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - uikit
+_core:
+  default_config_hash: c9MHdJfZE73cY5KUYM-G2UK2VE5OY55E9vNXEwh2AYc
+id: uikit_content
+theme: uikit
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

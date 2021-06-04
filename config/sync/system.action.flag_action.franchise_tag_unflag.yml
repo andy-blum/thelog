@@ -1,0 +1,15 @@
+uuid: 671a0497-bf3a-4925-b708-67c4f9219c5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.franchise_tag
+  module:
+    - flag
+id: flag_action.franchise_tag_unflag
+label: 'Un-Franchise Tag'
+type: node
+plugin: 'flag_action:franchise_tag_unflag'
+configuration:
+  flag_id: franchise_tag
+  flag_action: unflag

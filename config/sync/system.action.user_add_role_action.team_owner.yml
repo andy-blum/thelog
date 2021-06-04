@@ -1,0 +1,14 @@
+uuid: bc4952ea-970f-4b41-a291-22796d863a0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_owner
+  module:
+    - user
+id: user_add_role_action.team_owner
+label: 'Add the Team Owner role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: team_owner

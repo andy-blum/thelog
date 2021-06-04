@@ -1,0 +1,23 @@
+uuid: 37cdab91-051e-4661-abc5-7e460f337944
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bid_salary
+    - node.type.bid
+id: node.bid.field_bid_salary
+field_name: field_bid_salary
+entity_type: node
+bundle: bid
+label: Salary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

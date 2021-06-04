@@ -1,0 +1,35 @@
+uuid: ecfaeb11-5d44-46dd-ae43-3073af8b6b44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: franchise_tag
+label: 'Franchise Tag'
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Franchise Tag'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Un-Franchise Tag'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Apply Franchise Tag?'
+  unflag_confirmation: 'Remove Franchise Tag?'
+  flag_create_button: 'Apply Tag'
+  flag_delete_button: 'Remove Tag'
+  form_behavior: default

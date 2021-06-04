@@ -1,0 +1,32 @@
+# Ignore package-manager files
+web/*.*
+web/core
+web/modules
+web/profiles
+web/themes
+web/sites/default*.*
+web/sites/example*.*
+web/sites/default
+web/sites/*/settings*.php
+
+vendor/
+
+node_modules
+
+# Be sure to include custom modules, profiles, & themes
+!web/modules/custom
+!web/profiles/custom
+!web/themes/custom
+
+# Ignore non-root readmes
+readme.*
+!/readme.*
+
+# Ignore sensitive info
+.env
+*.env
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+/.DS_Store

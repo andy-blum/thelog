@@ -1,0 +1,19 @@
+uuid: 944229e5-fa96-4885-a088-98df2d056310
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_espn_id
+    - node.type.player
+id: node.player.field_espn_id
+field_name: field_espn_id
+entity_type: node
+bundle: player
+label: 'ESPN ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

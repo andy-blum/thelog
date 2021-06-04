@@ -1,0 +1,29 @@
+uuid: d681c596-8ac2-44db-86de-1a92a83a6bcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_injury_status
+    - node.type.player
+    - taxonomy.vocabulary.injury_status
+id: node.player.field_injury_status
+field_name: field_injury_status
+entity_type: node
+bundle: player
+label: 'Injury Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      injury_status: injury_status
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

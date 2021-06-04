@@ -1,0 +1,26 @@
+uuid: df29d060-e334-4a15-9cd8-6192b113d6a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_salary_cap_remaining
+  module:
+    - user
+id: user.user.field_salary_cap_remaining
+field_name: field_salary_cap_remaining
+entity_type: user
+bundle: user
+label: 'Salary Cap Remaining'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: !!float 1000
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

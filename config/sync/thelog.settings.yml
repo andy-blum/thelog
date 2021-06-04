@@ -1,0 +1,33 @@
+features:
+  node_user_picture: false
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+logo:
+  use_default: false
+  path: 'public://log-logo.png'
+logo_preview: ''
+favicon:
+  use_default: false
+  path: 'public://log-circle.png'
+  mimetype: image/png
+favicon_preview: ''
+layout_advanced: 0
+standard_sidebar_positions: null
+tablet_sidebar_positions: null
+mobile_sidebar_positions: null
+page_container: 0
+page_margin: '0'
+content_style: '0'
+content_card_style: '0'
+sidebar_first_style: '0'
+sidebar_first_card_style: '0'
+sidebar_second_style: '0'
+sidebar_second_card_style: '0'
+footer_style: '0'
+footer_card_style: '0'
+primary_tasks_style: '0'
+secondary_tasks_style: '0'
+display_breadcrumbs: 0
+breakcrumbs_home_link: 0
+breakcrumbs_current_page: 0

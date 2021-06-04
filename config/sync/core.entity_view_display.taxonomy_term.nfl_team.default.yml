@@ -1,0 +1,31 @@
+uuid: d40678b0-a000-4726-b80c-c1e5bba61475
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.nfl_team.field_bye_week
+    - taxonomy.vocabulary.nfl_team
+  module:
+    - text
+id: taxonomy_term.nfl_team.default
+targetEntityType: taxonomy_term
+bundle: nfl_team
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_bye_week:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

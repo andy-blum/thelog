@@ -1,0 +1,22 @@
+uuid: 7501573f-a89b-4dea-a88f-c2c6982dbf65
+langcode: en
+status: true
+dependencies:
+  config:
+    - config_pages.type.fa_period_dates
+    - field.field.config_pages.fa_period_dates.field_fa_deadlines
+  module:
+    - datetime
+id: config_pages.fa_period_dates.default
+targetEntityType: config_pages
+bundle: fa_period_dates
+mode: default
+content:
+  field_fa_deadlines:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  label: true

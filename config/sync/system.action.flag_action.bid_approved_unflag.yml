@@ -1,0 +1,15 @@
+uuid: a732c68f-8f5a-4cec-9655-8a1ffb8a305a
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.bid_approved
+  module:
+    - flag
+id: flag_action.bid_approved_unflag
+label: 'Unapprove Bid'
+type: node
+plugin: 'flag_action:bid_approved_unflag'
+configuration:
+  flag_id: bid_approved
+  flag_action: unflag

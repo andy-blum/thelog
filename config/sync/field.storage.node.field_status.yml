@@ -1,0 +1,33 @@
+uuid: f071d89c-6d79-47bd-b190-931c2be32f73
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_status
+field_name: field_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: active
+      label: Active
+    -
+      value: dts
+      label: 'Developmental Taxi Squad'
+    -
+      value: waived
+      label: Waived
+    -
+      value: ir
+      label: 'Injured Reserve'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

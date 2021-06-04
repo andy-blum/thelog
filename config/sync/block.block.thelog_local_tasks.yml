@@ -1,0 +1,22 @@
+uuid: 7ba4ad05-8395-4e2c-84cf-851cfb328210
+langcode: en
+status: true
+dependencies:
+  theme:
+    - thelog
+_core:
+  default_config_hash: 6tuQu8DEluNAC-L3bEcLDSyMS2OBc8C7Kniv4vC0pKo
+id: thelog_local_tasks
+theme: thelog
+region: content
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

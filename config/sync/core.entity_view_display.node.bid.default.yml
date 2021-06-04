@@ -1,0 +1,63 @@
+uuid: f0b50a75-c296-4b4c-afea-3d51590a6e7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bid.field_bid_dts
+    - field.field.node.bid.field_bid_salary
+    - field.field.node.bid.field_bid_years
+    - field.field.node.bid.field_player
+    - node.type.bid
+  module:
+    - user
+id: node.bid.default
+targetEntityType: node
+bundle: bid
+mode: default
+content:
+  field_bid_dts:
+    weight: 104
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_bid_salary:
+    weight: 105
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_bid_years:
+    weight: 103
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_player:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

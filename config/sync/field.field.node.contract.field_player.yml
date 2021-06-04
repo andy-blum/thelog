@@ -1,0 +1,25 @@
+uuid: 6c1fda59-0ac2-41e8-8a32-02bab9445810
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_player
+    - node.type.contract
+id: node.contract.field_player
+field_name: field_player
+entity_type: node
+bundle: contract
+label: Player
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: available_players
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

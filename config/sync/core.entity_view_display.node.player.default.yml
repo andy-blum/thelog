@@ -1,0 +1,129 @@
+uuid: b0355af1-1ffe-403d-8ff9-4a3b3baa95f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.player.feeds_item
+    - field.field.node.player.field_adp
+    - field.field.node.player.field_contract
+    - field.field.node.player.field_espn_id
+    - field.field.node.player.field_first_name
+    - field.field.node.player.field_injury_status
+    - field.field.node.player.field_is_rookie
+    - field.field.node.player.field_last_name
+    - field.field.node.player.field_nfl_team
+    - field.field.node.player.field_position
+    - field.field.node.player.field_projected_stats
+    - field.field.node.player.field_raw_stats
+    - node.type.player
+  module:
+    - json_field
+    - user
+id: node.player.default
+targetEntityType: node
+bundle: player
+mode: default
+content:
+  field_adp:
+    weight: 110
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_contract:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_espn_id:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_first_name:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_injury_status:
+    weight: 109
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_is_rookie:
+    weight: 111
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_last_name:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_nfl_team:
+    weight: 107
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_position:
+    weight: 108
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_projected_stats:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: json
+    region: content
+  field_raw_stats:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: json
+    region: content
+  flag_watchlist:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  feeds_item: true

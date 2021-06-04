@@ -1,0 +1,15 @@
+uuid: 180fe475-0970-47f3-8b1e-d02f15bbb79c
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.waived
+  module:
+    - flag
+id: flag_action.waived_flag
+label: Waive
+type: node
+plugin: 'flag_action:waived_flag'
+configuration:
+  flag_id: waived
+  flag_action: flag

@@ -1,0 +1,14 @@
+uuid: d3215d7e-1863-4648-b625-1623de45655f
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_owner
+  module:
+    - user
+id: user_remove_role_action.team_owner
+label: 'Remove the Team Owner role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: team_owner

@@ -1,0 +1,23 @@
+uuid: 94736e63-802f-47cc-b592-74d4b42be370
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_years_remaining
+    - node.type.contract
+id: node.contract.field_years_remaining
+field_name: field_years_remaining
+entity_type: node
+bundle: contract
+label: 'Years Remaining'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

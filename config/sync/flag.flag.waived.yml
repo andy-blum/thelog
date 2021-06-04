@@ -1,0 +1,35 @@
+uuid: 9379c946-30e3-4887-9c38-8c97376fd70a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: waived
+label: Waived
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: Waive
+flag_long: ''
+flag_message: ''
+unflag_short: Unwaive
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Waive this contract?'
+  unflag_confirmation: 'Undo this contract waiver?'
+  flag_create_button: Waive
+  flag_delete_button: Unwaive
+  form_behavior: default

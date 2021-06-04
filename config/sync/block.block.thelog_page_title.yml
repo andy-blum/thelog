@@ -1,0 +1,20 @@
+uuid: f07e29a7-c558-495c-a2d9-30c783f0c93f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - thelog
+_core:
+  default_config_hash: zRFXCDyKlKV1CkIDfd9OtgpxJYvImpmeICBZpH_fWEQ
+id: thelog_page_title
+theme: thelog
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

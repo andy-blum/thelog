@@ -1,0 +1,8 @@
+uuid: 39149c13-2cda-41fa-8cbf-7cc874b8bcf1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Injury Status'
+vid: injury_status
+description: ''
+weight: 0

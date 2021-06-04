@@ -1,0 +1,19 @@
+uuid: 52aea732-8662-4486-b453-d90da20f2847
+langcode: en
+status: true
+dependencies: {  }
+id: team_owner
+label: 'Team Owner'
+weight: 2
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'flag franchise_tag own items'
+  - 'flag injured_reserve own items'
+  - 'flag tradable own items'
+  - 'flag untouchable own items'
+  - 'flag waived own items'
+  - 'flag watchlist'
+  - 'unflag tradable own items'
+  - 'unflag untouchable own items'
+  - 'unflag watchlist'

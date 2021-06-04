@@ -1,0 +1,17 @@
+uuid: 4d13f1cb-ceb0-4875-a0f7-7828b57337f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Bid
+type: bid
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
