@@ -1,0 +1,108 @@
+{#
+/**
+ * @file
+ * Default view template to display all the fields in a row.
+ *
+ * Available variables:
+ * - view: The view in use.
+ * - fields: A list of fields, each one contains:
+ *   - content: The output of the field.
+ *   - raw: The raw data for the field, if it exists. This is NOT output safe.
+ *   - class: The safe class ID to use.
+ *   - handler: The Views field handler controlling this field.
+ *   - inline: Whether or not the field should be inline.
+ *   - wrapper_element: An HTML element for a wrapper.
+ *   - wrapper_attributes: List of attributes for wrapper element.
+ *   - separator: An optional separator that may appear before a field.
+ *   - label: The field's label text.
+ *   - label_element: An HTML element for a label wrapper.
+ *   - label_attributes: List of attributes for label wrapper.
+ *   - label_suffix: Colon after the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ *   - has_label_colon: A boolean indicating whether to display a colon after
+ *     the label.
+ *   - element_type: An HTML element for the field content.
+ *   - element_attributes: List of attributes for HTML element for field content.
+ * - row: The raw result from the query, with all data it fetched.
+ *
+ * @see template_preprocess_views_view_fields()
+ *
+ * @ingroup themeable
+ */
+#}
+
+{# fields|keys => Array
+(
+    [0] => field_first_name
+    [1] => field_last_name
+    [2] => field_nfl_team
+    [3] => field_position
+    [4] => field_salary
+    [5] => field_years_remaining
+    [6] => field_espn_id
+    [7] => link_flag
+    [8] => link_flag_1
+    [9] => link_flag_2
+    [10] => flagged
+    [11] => flagged_1
+    [12] => flagged_2
+) #}
+{% set headshot = [
+  'https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/',
+  fields.field_espn_id.content|striptags|trim,
+  '.png&w=75&h=75&scale=crop']|join()
+%}
+
+{% set fullname = [
+  fields.field_first_name.content|striptags,
+  fields.field_last_name.content|striptags
+]|join(' ') %}
+
+<div uk-grid="small">
+  <div>
+    <img class="uk-border-circle" src="{{headshot}}" alt="Headshot of ">
+  </div>
+
+  <div>
+    <h2 class="uk-margin-remove">{{fullname}}</h2>
+    <p class="uk-margin-remove">
+      {{fields.field_position.content}},
+      {{fields.field_nfl_team.content}}
+    </p>
+  </div>
+
+  <div class="uk-margin-auto-left">
+    <p class="uk-h3 uk-margin-remove">
+      {{fields.field_salary.content}} -
+      {{fields.field_years_remaining.content}} years remaining
+    </p>
+
+    {% spaceless %}
+    <div>
+    {% if fields.link_flag.content|striptags|trim %}
+      {{fields.link_flag.content}}
+    {% else %}
+      {% set isFlagged = fields.flagged.content|render|striptags|trim %}
+    {% endif %}
+
+    {% if fields.link_flag_1.content|striptags|trim %}
+      {{fields.link_flag_1.content}}
+    {% else %}
+      {% set isFlagged = fields.flagged_1.content|render|striptags|trim %}
+      <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-ban fa-w-16 fa-7x"><path fill="currentColor" d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"></path></svg>
+    {% endif %}
+
+    {% if fields.link_flag_2.content|striptags|trim %}
+      {{fields.link_flag_2.content}}
+    {% else %}
+      {% set isFlagged = fields.flagged_2.content|render|striptags|trim %}
+    {% endif %}
+    </div>
+    {% endspaceless %}
+  </div>
+</div>
+
+
+
+

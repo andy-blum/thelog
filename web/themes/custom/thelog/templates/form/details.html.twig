@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Theme override to display a details element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the details element.
+ * - errors: (optional) Any errors for this details element, may not be set.
+ * - title: (optional) The title of the element, may not be set.
+ * - description: (optional) The description of the element, may not be set.
+ * - children: (optional) The children of the element, may not be set.
+ * - value: (optional) The value of the element, may not be set.
+ *
+ * @see template_preprocess_details()
+ *
+ * @ingroup uikit_themeable
+ */
+#}
+<div class="uk-margin">
+  <ul{{ attributes }} uk-accordion>
+    <li{% if attributes.open is defined %} class="uk-open"{% endif %}>
+      {%- if title -%}
+        <a{{ summary_attributes.addClass('uk-accordion-title') }}>{{ title }}</a>
+      {%- endif -%}
+      <div class="uk-accordion-content">
+        {% if errors %}
+          <div class="uk-alert-warning" uk-alert>
+            {{ errors }}
+          </div>
+        {% endif %}
+
+        {{ description }}
+        {{ children }}
+        {{ value }}
+      </div>
+    </li>
+  </ul>
+</div>

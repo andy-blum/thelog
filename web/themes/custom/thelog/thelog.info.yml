@@ -1,0 +1,20 @@
+name: thelog
+type: theme
+description: 'UIkit Sub-theme'
+core_version_requirement: ^8 || ^9
+base theme: uikit
+
+regions:
+  navbar: 'Navigation Bar'
+  offcanvas: 'Offcanvas Navigation'
+  content: Content
+  sidebar_first: 'Left Sidebar'
+  sidebar_second: 'Right Sidebar'
+  footer: 'Footer'
+
+libraries:
+  - thelog/global-style
+  - core/popperjs
+
+stylesheets-remove:
+  - '@uikit/css/uikit.toolbar.menu.css'

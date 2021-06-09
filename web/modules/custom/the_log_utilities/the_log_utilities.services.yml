@@ -1,0 +1,5 @@
+services:
+  the_log_utilities.flag_subscriber:
+    class: Drupal\the_log_utilities\EventSubscriber\FlagSubscriber
+    tags:
+      - { name: event_subscriber }

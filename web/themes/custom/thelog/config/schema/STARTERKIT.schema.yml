@@ -1,0 +1,5 @@
+# Schema for the configuration files of the thelog theme.
+
+thelog.settings:
+  type: theme_settings
+  label: 'thelog settings'

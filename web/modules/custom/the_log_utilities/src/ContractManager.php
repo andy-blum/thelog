@@ -1,0 +1,81 @@
+<?php
+
+namespace Drupal\the_log_utilities;
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\Entity\User;
+
+class ContractManager {
+
+  const YEAR_CAP = 100;
+  const SALARY_CAP = 1000;
+  const CONTRACT_CAP = 40;
+  const DTS_CAP = 13;
+
+  protected static function db() {
+    return \Drupal::database();
+  }
+
+  public static function getContract($id) {
+    $database = self::db();
+    $query = $database->select('node_field_data', 'node');
+    $query->condition('node.type', 'contract', '=');
+    $query->condition('node.nid', $id, '=');
+    $query->join('node__field_salary', 'salary', 'node.nid = salary.entity_id');
+    $query->join('node__field_years_remaining', 'years', 'node.nid = years.entity_id');
+    $query->join('node_revision__field_player', 'player', 'node.nid = player.entity_id');
+    $query->fields('node', ['nid', 'status', 'title']);
+    $query->fields('salary', ['field_salary_value']);
+    $query->fields('years', ['field_years_remaining_value']);
+    $query->fields('player', ['field_player_target_id']);
+    $query->range(0, 1);
+    $results = $query->execute()->fetchAll();
+
+    return $results;
+  }
+
+  public static function getAllContractsForUser($uid) {
+    $database = self::db();
+    $query = $database->select('node_field_data', 'node');
+    $query->condition('node.type', 'contract', '=');
+    $query->condition('node.uid', $uid, '=');
+    $query->join('node__field_salary', 'salary', 'node.nid = salary.entity_id');
+    $query->join('node__field_years_remaining', 'years', 'node.nid = years.entity_id');
+    $query->join('node_revision__field_player', 'player', 'node.nid = player.entity_id');
+    $query->fields('node', ['nid', 'status', 'title']);
+    $query->fields('salary', ['field_salary_value']);
+    $query->fields('years', ['field_years_remaining_value']);
+    $query->fields('player', ['field_player_target_id']);
+    $results = $query->execute()->fetchAll();
+
+    return $results;
+  }
+
+  public static function getAllContractValues($uid) {
+
+    $contracts = self::getAllContractsForUser($uid);
+
+    $total_salary = 0;
+    $total_years = 0;
+
+    foreach ($contracts as $contract) {
+      $total_salary += $contract->field_salary_value;
+      $total_years += $contract->field_years_remaining_value;
+    }
+
+    return [
+      'salary' => $total_salary,
+      'years' => $total_years,
+      'contracts' => count($contracts)
+    ];
+  }
+
+  public static function updateCapHit(User $user) {
+    $values = self::getAllContractValues($user->id());
+
+    $user->field_total_contracts->set(0, strval($values['contracts']));
+    $user->field_total_contract_years->set(0, strval($values['years']));
+    $user->field_total_salary->set(0, strval($values['salary']));
+    $user->save();
+  }
+}

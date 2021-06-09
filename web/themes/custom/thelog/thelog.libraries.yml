@@ -1,0 +1,13 @@
+global-style:
+  version: VERSION
+  css:
+    base:
+      css/thelog.base.css: {}
+    layout:
+      css/thelog.layout.css: {}
+    component:
+      css/thelog.component.css: {}
+    theme:
+      css/thelog.theme.css: {}
+  js:
+    js/thelog.theme.js: {}

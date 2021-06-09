@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Theme override to display the navbar region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @see template_preprocess_region()
+ * @see uikit_preprocess_region()
+ *
+ * @ingroup uikit_themeable
+ */
+#}
+
+<div class="uk-container">
+  <div uk-grid class="uk-width-1-1">
+    {{ content_left }}
+    {{ content_center }}
+    {{ content_right }}
+  </div>
+</div>

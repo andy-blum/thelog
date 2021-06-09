@@ -1,0 +1,5 @@
+/* Purely visual styling (“look-and-feel”) for a component. */
+
+#thelog-branding .uk-logo img {
+  max-width: 90px;
+}

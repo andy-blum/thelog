@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for The LOG Utilities module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\the_log_utilities\ContractManager;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function the_log_utilities_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (in_array($form_id, ['flag_confirm_form','unflag_confirm_form'])) {
+    $flag = \Drupal::routeMatch()->getParameter('flag');
+    $type = $flag->getFlaggableEntityTypeId();
+    $id = \Drupal::routeMatch()->getParameter('entity_id');
+    $node = \Drupal::entityTypeManager()->getStorage($type)->load($id);
+    $form['entity_info'] = [
+      '#markup' => '<p>' . $node->bundle() . ' - ' . $node->label() . '</p>'
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function the_log_utilities_form_node_contract_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $queries = \Drupal::request()->query->all();
+  if (isset($queries['field_player'])) {
+    $entity = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->load($queries['field_player']);
+
+    $form['field_player']['widget'][0]['target_id']['#default_value'] = $entity;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function the_log_utilities_webform_submission_insert(EntityInterface $entity) {
+
+  $bids = $entity->getData()['bids'];
+
+  // Loop over all bids to make sure they're valid.
+  foreach ($bids as $key => $bid) {
+
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function the_log_utilities_entity_presave(EntityInterface $entity) {
+  $eid = $entity->getEntityTypeId();
+  $bundle = $entity->bundle();
+  $isUpdating = !$entity->isNew(); // New contracts handled on insert
+
+  if ($eid == 'node' && $bundle == 'contract') {
+    ContractManager::updateCapHit($entity->getOwner());
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function the_log_utilities_entity_delete(EntityInterface $entity) {
+  $eid = $entity->getEntityTypeId();
+  $bundle = $entity->bundle();
+
+  if ($eid == 'node' && $bundle == 'contract') {
+    ContractManager::updateCapHit($entity->getOwner());
+  }
+}
+
+
+/**
+ * Implements hook_cron().
+ */
+function the_log_utilities_cron() {
+  $ids = \Drupal::entityQuery('user')
+	->condition('status', 1)
+	->condition('roles', 'team_owner')
+	->execute();
+
+  foreach ($ids as $id) {
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
+    ContractManager::updateCapHit($user);
+  }
+}
