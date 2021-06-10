@@ -9,5 +9,5 @@ global-style:
       css/thelog.component.css: {}
     theme:
       css/thelog.theme.css: {}
-  js:
-    js/thelog.theme.js: {}
+  # js:
+  #   js/thelog.theme.js: {}
