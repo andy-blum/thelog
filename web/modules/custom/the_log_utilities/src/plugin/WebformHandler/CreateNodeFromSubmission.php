@@ -13,7 +13,7 @@ use Drupal\webform\WebformSubmissionInterface;
  * Create a new node entity from a webform submission.
  *
  * @WebformHandler(
- *   id = "Create a node",
+ *   id = "create_a_node",
  *   label = @Translation("Create a node"),
  *   category = @Translation("Entity Creation"),
  *   description = @Translation("Creates a new node from Webform Submissions."),

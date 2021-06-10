@@ -14,7 +14,7 @@ use Drupal\the_log_utilities\ContractManager;
  * Webform validate handler.
  *
  * @WebformHandler(
- *   id = "my_module_custom_validator",
+ *   id = "validate_bids",
  *   label = @Translation("Alter form to validate it"),
  *   category = @Translation("Settings"),
  *   description = @Translation("Form alter to validate it."),
