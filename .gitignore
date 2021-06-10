@@ -18,9 +18,15 @@ node_modules
 readme.*
 !/readme.*
 
+
+# Ignore non-root gitignores
+.gitignore
+!/.gitignore
+
 # Ignore sensitive info
 .env
 *.env
+error_log
 
 # Ignore paths that contain user-generated content.
 sites/*/files
