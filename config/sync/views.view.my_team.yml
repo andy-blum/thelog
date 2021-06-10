@@ -321,7 +321,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{% set fullname = field_first_name ~ ' ' ~ field_last_name %}\r\n{{ field_espn_id }}\r\n{{fullname}}"
+            text: "{% set fullname = field_first_name|raw ~ ' ' ~ field_last_name|raw %}\r\n{{ field_espn_id }}\r\n{{fullname|raw}}"
             make_link: false
             path: ''
             absolute: false
