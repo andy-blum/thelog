@@ -52,9 +52,7 @@
   {{ attachment_before }}
 
   {% if rows -%}
-    <div uk-grid="" class="uk-child-width-1-1">
-      {{ rows }}
-    </div>
+    {{ rows }}
   {% elseif empty -%}
     {{ empty }}
   {% endif %}

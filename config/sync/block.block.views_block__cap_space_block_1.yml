@@ -1,0 +1,30 @@
+uuid: cf8210fb-cd1c-4444-a515-8f998cd30440
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.cap_space
+  module:
+    - system
+    - views
+  theme:
+    - thelog
+id: views_block__cap_space_block_1
+theme: thelog
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:cap_space-block_1'
+settings:
+  id: 'views_block:cap_space-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/teams/*'
+    negate: false
