@@ -1,0 +1,24 @@
+name: Scrape
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * *'
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [15.x]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+          node-version: 15.14.0
+      env:
+        LEAGUE_ID: ${{secrets.LEAGUE_ID}}
+        ESPN_S2: ${{secrets.ESPN_S2}}
+        SWID: ${{secrets.SWID}}
+    - run: npm install
+    - run: npm start
