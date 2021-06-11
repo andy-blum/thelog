@@ -1,7 +1,7 @@
 import ESPN from 'espn-fantasy-football-api/node-dev.js';
-import { getPlayers } from './getPlayers.js';
-import { getTeams } from './getTeams.js';
-import { getLeagueSeason } from './getLeagueSeason.js';
+import { getPlayers } from './src/getPlayers.js';
+import { getTeams } from './src/getTeams.js';
+import { getLeagueSeason } from './src/getLeagueSeason.js';
 
 const { LEAGUE_ID, ESPN_S2, SWID } = process.env;
 

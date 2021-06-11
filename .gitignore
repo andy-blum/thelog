@@ -33,3 +33,6 @@ error_log
 sites/*/files
 sites/*/private
 /.DS_Store
+
+# Ignore compiled files
+dist/
