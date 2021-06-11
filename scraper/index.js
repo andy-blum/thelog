@@ -12,6 +12,17 @@ const client = new Client({
   SWID: SWID
 });
 
+console.log('****************************');
+console.log('Fetching League Season Info!');
+console.log('****************************');
 const leagueYear = await getLeagueSeason();
+
+console.log('****************************');
+console.log('Fetching Players!');
+console.log('****************************');
 await getPlayers(client, leagueYear);
+
+console.log('****************************');
+console.log('Fetching Players!');
+console.log('****************************');
 await getTeams(client, leagueYear);
