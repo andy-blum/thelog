@@ -27,6 +27,7 @@ readme.*
 .env
 *.env
 error_log
+/private
 
 # Ignore paths that contain user-generated content.
 sites/*/files
