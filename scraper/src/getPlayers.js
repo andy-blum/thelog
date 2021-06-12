@@ -32,10 +32,15 @@ export const getPlayers = async (client, leagueYear) => {
 
     player.eligiblePositions = filteredPositions;
 
+    delete rawStats.usesPoints;
+    delete projectedRawStats.usesPoints;
+
     players[player.id] = {
       player,
-      rawStats,
-      projectedRawStats
+      stats: {
+        raw: JSON.stringify(rawStats),
+        projected: JSON.stringify(projectedRawStats)
+      }
     };
 
     players[player.id].player['rookie'] = true;
