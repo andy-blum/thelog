@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "espn-fantasy-football-api": "^0.16.1",
+    "espn-fantasy-football-api": "github:andy-blum/ESPN-Fantasy-Football-API",
     "isomorphic-fetch": "^3.0.0",
     "write-json-file": "^4.3.0"
   },

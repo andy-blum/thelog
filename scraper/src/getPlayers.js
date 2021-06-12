@@ -2,10 +2,13 @@ import writeJsonFile from 'write-json-file';
 import { filesDir } from './filesDir.js';
 
 export const getPlayers = async (client, leagueYear) => {
+
+  console.log(`    Fetching league year ${leagueYear.id}, scoring period ${leagueYear.currentScoringPeriod.id}`);
   const fetchedPlayers = await client.getFreeAgents({
     seasonId: leagueYear.id,
     scoringPeriodId: leagueYear.currentScoringPeriod.id
   });
+  console.log(`    Found ${fetchedPlayers.length} players.`);
 
   const players = {}
 
@@ -46,13 +49,16 @@ export const getPlayers = async (client, leagueYear) => {
     players[player.id].player['rookie'] = true;
   }
 
-  for (let year = (leagueYear.id - 1); year > (leagueYear.id - 3); year--) {
+  for (let year = (leagueYear.id - 1); year > 2017; year--) {
+    console.log(`    Fetching league year ${year}`);
     const previousPlayers = await client.getFreeAgents({
       seasonId: year,
-      scoringPeriodId: 0
+      scoringPeriodId: 1
     });
+    console.log(`    Found ${previousPlayers.length} players.`)
 
     for (const { player } of previousPlayers) {
+
       if (players[player.id]) {
         players[player.id].player['rookie'] = false;
       }
