@@ -34,16 +34,14 @@
 ] %}
 
 {% set button_classes = [
-  'uk-icon-button',
-  action == 'unflag' ? 'uk-button-primary' : 'uk-button-default',
+  'uk-link-text'
 ] %}
 
 {# Set nofollow to prevent search bots from crawling anonymous flag links #}
 {% set attributes = attributes.setAttribute('rel', 'nofollow') %}
 
 <div class="{{classes|join(' ')}}">
-  <a uk-tooltip="{{title}}" {{ attributes.addClass(button_classes).setAttribute('uk-icon', 'lock') }}>
-    <span class="visually-hidden">{{ title }}</span>
-  </a>
+  <span uk-icon="lock" class="uk-margin-small-right"></span>
+  <a {{ attributes.addClass(button_classes) }}>{{ title }}</a>
 </div>
 {% endspaceless %}

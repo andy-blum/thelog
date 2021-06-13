@@ -12,4 +12,4 @@ period: 86400
 cron: null
 source_id: default_db
 destination_id: private_files
-settings_profile_id: null
+settings_profile_id: daily_backups

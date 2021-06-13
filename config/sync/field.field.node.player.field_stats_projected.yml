@@ -1,21 +1,19 @@
-uuid: ae2e7519-8563-4fba-aefb-427ab01fa67b
+uuid: 0d0e16fd-55da-4dfe-a26d-771f4d1d56ea
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_raw_stats
+    - field.storage.node.field_stats_projected
     - node.type.player
-  module:
-    - json_field
-id: node.player.field_raw_stats
-field_name: field_raw_stats
+id: node.player.field_stats_projected
+field_name: field_stats_projected
 entity_type: node
 bundle: player
-label: 'Raw Stats'
+label: 'Stats (Projected)'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: json_native
+field_type: string_long

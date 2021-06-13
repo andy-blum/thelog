@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.feeds_item
     - field.field.user.user.field_contract_cap_remaining
+    - field.field.user.user.field_dts_slots
     - field.field.user.user.field_espn_abbr
     - field.field.user.user.field_espn_id
     - field.field.user.user.field_espn_name
@@ -22,6 +23,15 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_dts_slots:
+    weight: 54
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_rank:
     type: number_integer
     weight: 0

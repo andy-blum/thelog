@@ -1,0 +1,51 @@
+uuid: a8b08e09-2a05-4f88-9573-add6905fd921
+langcode: en
+status: true
+dependencies: {  }
+id: weekly_backups
+label: 'Weekly Backups'
+config:
+  namer:
+    filename: weekly
+    timestamp: true
+    timestamp_format: Y_m_d--H_i_s
+  compressor:
+    compression: gzip
+  encrypt:
+    encrypt: 0
+    encrypt_password: ''
+  utils:
+    site_offline: false
+  metadata:
+    description: ''
+  db_exclude:
+    exclude_tables: {  }
+    nodata_tables:
+      batch: batch
+      cache_bootstrap: cache_bootstrap
+      cache_config: cache_config
+      cache_container: cache_container
+      cache_data: cache_data
+      cache_default: cache_default
+      cache_discovery: cache_discovery
+      cache_dynamic_page_cache: cache_dynamic_page_cache
+      cache_entity: cache_entity
+      cache_feeds_download: cache_feeds_download
+      cache_menu: cache_menu
+      cache_page: cache_page
+      cache_render: cache_render
+      cache_rest: cache_rest
+      cache_toolbar: cache_toolbar
+      cachetags: cachetags
+      watchdog: watchdog
+  private_files_exclude:
+    exclude_filepaths:
+      - backup_migrate
+  public_files_exclude:
+    exclude_filepaths:
+      - js
+      - css
+      - php
+      - styles
+      - 'config_*'
+      - .htaccess

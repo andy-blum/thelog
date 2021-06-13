@@ -1,0 +1,15 @@
+uuid: d9bcd440-c686-4f9d-9e80-490f874231d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.promote
+  module:
+    - flag
+id: flag_action.promote_flag
+label: 'Promote to Active Roster'
+type: node
+plugin: 'flag_action:promote_flag'
+configuration:
+  flag_id: promote
+  flag_action: flag

@@ -13,6 +13,13 @@ use Drupal\the_log_utilities\ContractManager;
  * @see process.inc
  */
 
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function thelog_preprocess_page(&$variables) {
+}
+
 /**
  * Implements hook_preprocess_HOOK().
  */

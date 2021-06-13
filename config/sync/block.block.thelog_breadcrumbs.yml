@@ -10,8 +10,8 @@ _core:
   default_config_hash: q7iXXMfeIQEtfCtaXnPyZ1YRcYvdouygfzuL9YQlbTE
 id: thelog_breadcrumbs
 theme: thelog
-region: content
-weight: -4
+region: pre_content
+weight: -3
 provider: null
 plugin: system_breadcrumb_block
 settings:

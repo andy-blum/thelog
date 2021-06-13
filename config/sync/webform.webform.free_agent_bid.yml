@@ -194,6 +194,21 @@ access:
     users: {  }
     permissions: {  }
 handlers:
+  validate_bids:
+    id: settings
+    label: 'Validate Bids'
+    notes: ''
+    handler_id: validate_bids
+    status: true
+    conditions: {  }
+    weight: -50
+    settings:
+      preview_title: ''
+      preview_message: ''
+      confirmation_url: ''
+      confirmation_title: ''
+      confirmation_message: ''
+      debug: ''
   create_a_node:
     id: 'Create a node'
     label: 'Create a node'
@@ -202,14 +217,5 @@ handlers:
     status: true
     conditions: {  }
     weight: -49
-    settings: {  }
-  validate_bids:
-    id: my_module_custom_validator
-    label: 'Validate Bids'
-    notes: ''
-    handler_id: validate_bids
-    status: true
-    conditions: {  }
-    weight: -50
     settings: {  }
 variants: {  }

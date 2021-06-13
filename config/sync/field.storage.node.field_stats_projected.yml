@@ -1,16 +1,16 @@
-uuid: c6182fa5-0b1c-4d81-aa44-f567e1063590
+uuid: 164c2997-63f5-4189-931d-b28037593eac
 langcode: en
 status: true
 dependencies:
   module:
-    - json_field
     - node
-id: node.field_projected_stats
-field_name: field_projected_stats
+id: node.field_stats_projected
+field_name: field_stats_projected
 entity_type: node
-type: json_native
-settings: {  }
-module: json_field
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

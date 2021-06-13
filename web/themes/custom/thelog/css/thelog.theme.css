@@ -3,3 +3,7 @@
 #thelog-branding .uk-logo img {
   max-width: 90px;
 }
+
+.projected-stats {
+  display: none;
+}

@@ -1,0 +1,21 @@
+uuid: 8349bb5d-a90d-49c1-8b81-58b65a748688
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.injury_status
+  module:
+    - text
+id: taxonomy_term.injury_status.default
+targetEntityType: taxonomy_term
+bundle: injury_status
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

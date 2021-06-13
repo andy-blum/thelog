@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.player.field_last_name
     - field.field.node.player.field_nfl_team
     - field.field.node.player.field_position
+    - field.field.node.player.field_stats_projected
     - node.type.player
   module:
     - feeds_ex
@@ -88,6 +89,9 @@ parser_configuration:
     player_rookie:
       label: player.rookie
       value: player.rookie
+    stats_projected:
+      label: stats.projected
+      value: stats.projected
   display_errors: false
   source_encoding:
     - auto
@@ -138,6 +142,14 @@ custom_sources:
     label: player.rookie
     value: player.rookie
     machine_name: player_rookie
+  projectedrawstats:
+    label: projectedRawStats
+    value: projectedRawStats
+    machine_name: projectedrawstats
+  stats_projected:
+    label: stats.projected
+    value: stats.projected
+    machine_name: stats_projected
 mappings:
   -
     target: field_first_name
@@ -195,5 +207,11 @@ mappings:
     target: field_is_rookie
     map:
       value: player_rookie
+    settings:
+      language: null
+  -
+    target: field_stats_projected
+    map:
+      value: stats_projected
     settings:
       language: null

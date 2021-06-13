@@ -13,11 +13,9 @@ dependencies:
     - field.field.node.player.field_last_name
     - field.field.node.player.field_nfl_team
     - field.field.node.player.field_position
-    - field.field.node.player.field_projected_stats
-    - field.field.node.player.field_raw_stats
+    - field.field.node.player.field_stats_projected
     - node.type.player
   module:
-    - json_field
     - user
 id: node.player.default
 targetEntityType: node
@@ -101,19 +99,12 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_projected_stats:
-    weight: 106
+  field_stats_projected:
+    weight: 112
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: json
-    region: content
-  field_raw_stats:
-    weight: 105
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: json
+    type: basic_string
     region: content
   flag_watchlist:
     weight: 10

@@ -1,0 +1,35 @@
+uuid: 0f927144-f384-4c12-be4e-d6ce0667d300
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: promote
+label: Promote
+bundles:
+  - contract
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Promote to Active Roster'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Demote to DTS'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: confirm
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Promote this player to active roster?'
+  unflag_confirmation: 'Demote this player to DTS?'
+  flag_create_button: Promote
+  flag_delete_button: Demote
+  form_behavior: default

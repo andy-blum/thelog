@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.feeds_item
     - field.field.user.user.field_contract_cap_remaining
+    - field.field.user.user.field_dts_slots
     - field.field.user.user.field_espn_abbr
     - field.field.user.user.field_espn_id
     - field.field.user.user.field_espn_name
@@ -16,7 +17,6 @@ dependencies:
     - field.field.user.user.field_total_contracts
     - field.field.user.user.field_total_salary
   module:
-    - path
     - user
 id: user.user.default
 targetEntityType: user
@@ -28,36 +28,10 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_total_contract_years:
-    weight: 4
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_total_contracts:
-    weight: 3
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_total_salary:
-    weight: 2
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  path:
-    type: path
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   feeds_item: true
   field_contract_cap_remaining: true
+  field_dts_slots: true
   field_espn_abbr: true
   field_espn_id: true
   field_espn_name: true
@@ -65,5 +39,9 @@ hidden:
   field_record: true
   field_salary_cap_remaining: true
   field_seed: true
+  field_total_contract_years: true
+  field_total_contracts: true
+  field_total_salary: true
   language: true
+  path: true
   timezone: true

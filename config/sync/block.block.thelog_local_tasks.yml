@@ -8,8 +8,8 @@ _core:
   default_config_hash: 6tuQu8DEluNAC-L3bEcLDSyMS2OBc8C7Kniv4vC0pKo
 id: thelog_local_tasks
 theme: thelog
-region: content
-weight: -3
+region: pre_content
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:

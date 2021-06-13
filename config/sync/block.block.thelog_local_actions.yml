@@ -8,8 +8,8 @@ _core:
   default_config_hash: 27JCzn9nlPlQtKpi1y9vFsdMe4U7TueEY_xXuuz24Fc
 id: thelog_local_actions
 theme: thelog
-region: content
-weight: -2
+region: pre_content
+weight: -1
 provider: null
 plugin: local_actions_block
 settings:

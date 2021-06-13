@@ -1,0 +1,22 @@
+uuid: f5114744-4a02-4627-8846-571ebf7a3e6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.icon
+    - taxonomy.vocabulary.injury_status
+  module:
+    - text
+id: taxonomy_term.injury_status.icon
+targetEntityType: taxonomy_term
+bundle: injury_status
+mode: icon
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

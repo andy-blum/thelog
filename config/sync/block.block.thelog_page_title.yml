@@ -8,8 +8,8 @@ _core:
   default_config_hash: zRFXCDyKlKV1CkIDfd9OtgpxJYvImpmeICBZpH_fWEQ
 id: thelog_page_title
 theme: thelog
-region: content
-weight: -5
+region: pre_content
+weight: -4
 provider: null
 plugin: page_title_block
 settings:

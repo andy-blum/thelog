@@ -14,8 +14,7 @@ dependencies:
     - field.field.node.player.field_last_name
     - field.field.node.player.field_nfl_team
     - field.field.node.player.field_position
-    - field.field.node.player.field_projected_stats
-    - field.field.node.player.field_raw_stats
+    - field.field.node.player.field_stats_projected
     - node.type.player
   module:
     - user
@@ -70,7 +69,6 @@ hidden:
   field_contract: true
   field_espn_id: true
   field_is_rookie: true
-  field_projected_stats: true
-  field_raw_stats: true
+  field_stats_projected: true
   flag_watchlist: true
   links: true

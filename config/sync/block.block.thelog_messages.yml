@@ -10,8 +10,8 @@ _core:
   default_config_hash: SAf2t8XS_o-VMwEf17ArgxDOWQTu4-siSWxYRF0RHoA
 id: thelog_messages
 theme: thelog
-region: content
-weight: -1
+region: pre_content
+weight: -5
 provider: null
 plugin: system_messages_block
 settings:

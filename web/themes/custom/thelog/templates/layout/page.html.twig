@@ -59,22 +59,29 @@
 
   <div{{ page_attributes.addClass('uk-container', 'uk-margin') }}>
     <div id="page--wrapper" class="uk-grid" uk-grid>
+
+      <div class="uk-width-1-1">
+        {{page.pre_content}}
+      </div>
+
       {% if page.sidebar_first %}
-        <aside{{ sidebar_first_attributes }}>
+        <aside class="uk-width-large@m">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}
 
-      <main{{ content_attributes }}>
+      {% if page.sidebar_second %}
+        <aside class="uk-width-large@l uk-width-1-3@m uk-flex-last@m">
+          {{ page.sidebar_second }}
+        </aside>
+      {% endif %}
+
+      <main class="uk-width-expand">
         <a id="main-content" tabindex="-1"></a>
         {{ page.content }}
       </main>
 
-      {% if page.sidebar_second %}
-        <aside{{ sidebar_second_attributes }}>
-          {{ page.sidebar_second }}
-        </aside>
-      {% endif %}
+
     </div>
   </div>
 
