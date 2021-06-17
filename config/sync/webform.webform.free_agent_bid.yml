@@ -14,7 +14,36 @@ id: free_agent_bid
 title: 'Free Agent Bid'
 description: ''
 category: ''
-elements: "intro:\n  '#type': processed_text\n  '#text': |\n    <p>Use this page to create multiple bids for the current FA period. To see your bids submitted this week, visit your team's page. To see all bids submitted for the previous FA period, visit the <a href=\"/bids\">Bids Page</a></p>\n  '#format': full_html\nbids:\n  '#type': webform_custom_composite\n  '#title': Bids\n  '#title_display': hidden\n  '#element':\n    player:\n      '#type': entity_autocomplete\n      '#title': Player\n      '#target_type': node\n      '#selection_handler': views\n      '#selection_settings':\n        view:\n          view_name: available_players\n          display_name: entity_reference_1\n          arguments: {  }\n    salary:\n      '#type': number\n      '#title': Salary\n    years:\n      '#type': number\n      '#title': 'Contract Years'\n    dts:\n      '#type': checkbox\n      '#title': DTS"
+elements: |-
+  intro:
+    '#type': processed_text
+    '#text': |
+      <p>Use this page to create multiple bids for the current FA period. To see your bids submitted this week, visit your team's page. To see all bids submitted for the previous FA period, visit the <a href="/bids">Bids Page</a></p>
+    '#format': full_html
+  bids:
+    '#type': webform_custom_composite
+    '#title': Bids
+    '#title_display': hidden
+    '#element':
+      player:
+        '#type': entity_autocomplete
+        '#title': Player
+        '#target_type': node
+        '#selection_handler': views
+        '#selection_settings':
+          view:
+            view_name: available_players
+            display_name: entity_reference_1
+            arguments: {  }
+      salary:
+        '#type': number
+        '#title': Salary
+      years:
+        '#type': number
+        '#title': 'Contract Years'
+      dts:
+        '#type': checkbox
+        '#title': DTS
 css: ''
 javascript: ''
 settings:

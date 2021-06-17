@@ -12,7 +12,65 @@ id: trade_proposal
 title: 'Trade Proposal'
 description: ''
 category: ''
-elements: "teams:\n  '#type': webform_wizard_page\n  '#title': Teams\n  team_1:\n    '#type': entity_autocomplete\n    '#title': 'Team 1'\n    '#target_type': user\n    '#selection_handler': 'default:user'\n    '#selection_settings':\n      include_anonymous: false\n      filter:\n        type: role\n        role:\n          team_owner: team_owner\n          commissioner: 0\n      sort:\n        field: name\n        direction: ASC\n    '#required': true\n  team_2:\n    '#type': entity_autocomplete\n    '#title': 'Team 2'\n    '#target_type': user\n    '#selection_handler': 'default:user'\n    '#selection_settings':\n      include_anonymous: false\n      filter:\n        type: role\n        role:\n          team_owner: team_owner\n          commissioner: 0\n      sort:\n        field: name\n        direction: ASC\n    '#required': true\nassets:\n  '#type': webform_wizard_page\n  '#title': Assets\n  team_1_assets:\n    '#type': entity_autocomplete\n    '#title': 'Team 1 Assets'\n    '#multiple': true\n    '#target_type': node\n    '#selection_handler': 'default:node'\n    '#selection_settings':\n      target_bundles:\n        contract: contract\n        rookie_draft_pick: rookie_draft_pick\n  team_2_assets:\n    '#type': entity_autocomplete\n    '#title': 'Team 2 Assets'\n    '#multiple': true\n    '#target_type': node\n    '#selection_handler': 'default:node'\n    '#selection_settings':\n      target_bundles:\n        contract: contract\n        rookie_draft_pick: rookie_draft_pick"
+elements: |-
+  teams:
+    '#type': webform_wizard_page
+    '#title': Teams
+    team_1:
+      '#type': entity_autocomplete
+      '#title': 'Team 1'
+      '#target_type': user
+      '#selection_handler': 'default:user'
+      '#selection_settings':
+        include_anonymous: false
+        filter:
+          type: role
+          role:
+            team_owner: team_owner
+            commissioner: 0
+        sort:
+          field: name
+          direction: ASC
+      '#required': true
+    team_2:
+      '#type': entity_autocomplete
+      '#title': 'Team 2'
+      '#target_type': user
+      '#selection_handler': 'default:user'
+      '#selection_settings':
+        include_anonymous: false
+        filter:
+          type: role
+          role:
+            team_owner: team_owner
+            commissioner: 0
+        sort:
+          field: name
+          direction: ASC
+      '#required': true
+  assets:
+    '#type': webform_wizard_page
+    '#title': Assets
+    team_1_assets:
+      '#type': entity_autocomplete
+      '#title': 'Team 1 Assets'
+      '#multiple': true
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          contract: contract
+          rookie_draft_pick: rookie_draft_pick
+    team_2_assets:
+      '#type': entity_autocomplete
+      '#title': 'Team 2 Assets'
+      '#multiple': true
+      '#target_type': node
+      '#selection_handler': 'default:node'
+      '#selection_settings':
+        target_bundles:
+          contract: contract
+          rookie_draft_pick: rookie_draft_pick
 css: ''
 javascript: ''
 settings:

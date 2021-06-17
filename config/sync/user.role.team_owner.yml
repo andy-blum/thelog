@@ -10,6 +10,7 @@ permissions:
   - 'access user profiles'
   - 'flag franchise_tag own items'
   - 'flag injured_reserve own items'
+  - 'flag promote own items'
   - 'flag tradable own items'
   - 'flag untouchable own items'
   - 'flag waived own items'
