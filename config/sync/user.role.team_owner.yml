@@ -8,6 +8,10 @@ weight: 2
 is_admin: null
 permissions:
   - 'access user profiles'
+  - 'create bid content'
+  - 'create contract content'
+  - 'delete own bid content'
+  - 'edit own bid content'
   - 'flag franchise_tag own items'
   - 'flag injured_reserve own items'
   - 'flag promote own items'
@@ -18,3 +22,4 @@ permissions:
   - 'unflag tradable own items'
   - 'unflag untouchable own items'
   - 'unflag watchlist'
+  - 'view the administration theme'

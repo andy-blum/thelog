@@ -41,7 +41,9 @@ module:
   path_alias: 0
   permissions_filter: 0
   prepopulate: 0
+  rabbit_hole: 0
   rest: 0
+  rh_node: 0
   serialization: 0
   smtp: 0
   system: 0

@@ -43,28 +43,19 @@ function the_log_utilities_form_node_contract_form_alter(&$form, FormStateInterf
 }
 
 /**
- * Implements hook_ENTITY_TYPE_insert().
- */
-function the_log_utilities_webform_submission_insert(EntityInterface $entity) {
-
-  $bids = $entity->getData()['bids'];
-
-  // Loop over all bids to make sure they're valid.
-  foreach ($bids as $key => $bid) {
-
-  }
-}
-
-/**
  * Implements hook_entity_presave().
  */
 function the_log_utilities_entity_presave(EntityInterface $entity) {
   $eid = $entity->getEntityTypeId();
   $bundle = $entity->bundle();
-  $isUpdating = !$entity->isNew(); // New contracts handled on insert
+  $isNew = $entity->isNew();
 
   if ($eid == 'node' && $bundle == 'contract') {
     ContractManager::updateCapHit($entity->getOwner());
+  }
+
+  if ($eid == 'node' && $bundle == 'bid' && $isNew) {
+    $entity->field_team->set(0, $entity->getOwner());
   }
 }
 

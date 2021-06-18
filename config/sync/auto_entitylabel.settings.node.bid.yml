@@ -1,0 +1,9 @@
+status: 1
+pattern: '[node:field_player:entity:field_first_name] [node:field_player:entity:field_last_name] ($[node:field_bid_salary:value], [node:field_bid_years:value]yr)'
+escape: false
+preserve_titles: false
+save: 0
+chunk: '50'
+dependencies:
+  config:
+    - node.type.bid

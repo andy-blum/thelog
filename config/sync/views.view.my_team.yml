@@ -1764,7 +1764,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_espn_id }}\r\n<span class=\"uk-text-bold uk-margin-small-left\">{{field_first_name|raw}} {{field_last_name|raw}} {{ field_injury_status }}</span>\r\n<span class=\"projected-stats\">{{ field_stats_projected }}</span>"
+            text: "{{ field_espn_id }}\r\n<span class=\"uk-text-bold uk-margin-small-left\">{{field_first_name|raw}} {{field_last_name|raw}} {{ field_injury_status }}</span>"
             make_link: false
             path: ''
             absolute: false

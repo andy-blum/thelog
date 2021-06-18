@@ -1,7 +1,14 @@
 uuid: 9e8401b5-c288-4979-bbab-a3b2c8b54441
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: Player
 type: player
 description: ''

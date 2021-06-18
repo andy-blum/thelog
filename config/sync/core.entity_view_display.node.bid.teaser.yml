@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.bid.field_bid_salary
     - field.field.node.bid.field_bid_years
     - field.field.node.bid.field_player
+    - field.field.node.bid.field_team
     - node.type.bid
   module:
     - user
@@ -16,6 +17,11 @@ targetEntityType: node
 bundle: bid
 mode: teaser
 content:
+  flag_bid_approved:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -26,3 +32,4 @@ hidden:
   field_bid_salary: true
   field_bid_years: true
   field_player: true
+  field_team: true

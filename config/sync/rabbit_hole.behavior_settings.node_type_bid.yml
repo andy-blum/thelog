@@ -1,0 +1,14 @@
+uuid: b23b82c4-902d-4ffb-80b5-53258f02f263
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.bid
+id: node_type_bid
+entity_type_id: node_type
+entity_id: bid
+action: page_redirect
+allow_override: 0
+redirect: /user
+redirect_code: 301
+redirect_fallback_action: access_denied

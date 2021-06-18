@@ -1,0 +1,14 @@
+uuid: a31fff00-4e1b-47b1-ba6b-8344779678ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.player
+id: node_type_player
+entity_type_id: node_type
+entity_id: player
+action: page_redirect
+allow_override: 0
+redirect: /user
+redirect_code: 301
+redirect_fallback_action: access_denied

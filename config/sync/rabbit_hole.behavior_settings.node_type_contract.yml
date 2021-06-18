@@ -1,0 +1,14 @@
+uuid: 988fdc44-0ba3-4de9-bdd9-2abec12bf67e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contract
+id: node_type_contract
+entity_type_id: node_type
+entity_id: contract
+action: page_redirect
+allow_override: 0
+redirect: /user
+redirect_code: 301
+redirect_fallback_action: access_denied

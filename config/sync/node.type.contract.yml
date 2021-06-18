@@ -1,7 +1,14 @@
 uuid: 7693bbcd-aba9-495f-9b00-568ea6b702fc
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
 name: Contract
 type: contract
 description: ''
