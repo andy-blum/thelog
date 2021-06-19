@@ -4,12 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.contract.field_salary
+    - field.field.node.contract.field_status
     - field.field.node.contract.field_years_remaining
     - node.type.contract
   module:
     - feeds_ex
     - feeds_tamper
-    - flag
     - node
 third_party_settings:
   feeds_tamper:
@@ -41,6 +41,17 @@ third_party_settings:
         weight: 0
         label: Math
         uuid: 6084a6c5-dadc-411d-9d60-b32899000a8f
+      bf1d23d1-9acd-4c40-9da0-b055d0969bb6:
+        find: ir
+        replace: active
+        case_sensitive: false
+        whole: true
+        plugin: find_replace
+        source: field_status
+        weight: 0
+        label: 'Find replace'
+        word_boundaries: false
+        uuid: bf1d23d1-9acd-4c40-9da0-b055d0969bb6
 id: contracts
 label: Contracts
 description: ''
@@ -67,6 +78,9 @@ parser_configuration:
     field_years_remaining:
       label: field_years_remaining
       value: field_years_remaining
+    field_status:
+      label: field_status
+      value: field_status
   display_errors: false
   source_encoding:
     - auto
@@ -76,12 +90,12 @@ processor: 'entity:node'
 processor_configuration:
   langcode: en
   update_existing: 2
-  update_non_existent: 'flag_action:contract_needs_attention_flag'
+  update_non_existent: _keep
   expire: -1
   owner_feed_author: false
   owner_id: 0
   authorize: false
-  skip_hash_check: false
+  skip_hash_check: true
   values:
     type: contract
 custom_sources:
@@ -101,6 +115,10 @@ custom_sources:
     label: uid
     value: uid
     machine_name: uid
+  field_status:
+    label: field_status
+    value: field_status
+    machine_name: field_status
 mappings:
   -
     target: nid
@@ -120,5 +138,11 @@ mappings:
     map:
       value: field_years_remaining
     unique: {  }
+    settings:
+      language: null
+  -
+    target: field_status
+    map:
+      value: field_status
     settings:
       language: null
