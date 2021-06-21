@@ -14,6 +14,12 @@ use Drupal\the_log_utilities\ContractManager;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
+ * Implements hook_preprocess_HOOK().
+ */
+function the_log_utilities_preprocess_page(&$variables) {
+}
+
+/**
  * Implements hook_form_alter().
  */
 function the_log_utilities_form_alter(&$form, FormStateInterface $form_state, $form_id) {
@@ -76,6 +82,11 @@ function the_log_utilities_entity_delete(EntityInterface $entity) {
  * Implements hook_cron().
  */
 function the_log_utilities_cron() {
+
+  /**
+   * Update cap values.
+   */
+
   $ids = \Drupal::entityQuery('user')
 	->condition('status', 1)
 	->condition('roles', 'team_owner')
@@ -84,5 +95,64 @@ function the_log_utilities_cron() {
   foreach ($ids as $id) {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
     ContractManager::updateCapHit($user);
+  }
+
+  /**
+   * Publish bids after deadline.
+   */
+
+  // Get list of FA datetimes and current time
+  $config_pages = \Drupal::service('config_pages.loader');
+  $entity = $config_pages->load('fa_period_dates');
+  $tz = new DateTimeZone('America/New_York');
+  $now = (new DateTime('now', $tz))->format('U');
+
+  // Flatten array & filter out future values.
+  $raw_deadlines = $entity->get('field_fa_deadlines')->getValue();
+  $fa_deadlines = [];
+  foreach ($raw_deadlines as $deadline) {
+    // Format all deadlines to EST timezone.
+    $deadline_timestamp = (new DateTime($deadline['value'], $tz))->format('U');
+    if ($deadline_timestamp < $now) {
+      $fa_deadlines[] = $deadline_timestamp;
+    }
+  }
+
+  // Sort so most recent timestamp is [0].
+  rsort($fa_deadlines);
+
+  // Get new bids, publish them, change owner to uid #1
+  if (count($fa_deadlines) > 0) {
+    // Get unpublished nodes created before most recent deadline.
+    $query = \Drupal::entityQuery('node')
+      ->condition('status', 0)
+      ->condition('created', $fa_deadlines[0], '<')
+      ->condition('type', 'bid');
+
+    $nids = $query->execute();
+
+    $user_1 = \Drupal::entityTypeManager()->getStorage('user')->load('1');
+
+    // Publish & change ownership on all matching nodes.
+    foreach ($nids as $nid) {
+      $bid = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+      $bid->setPublished();
+      $bid->setOwner($user_1);
+      $bid->save();
+    }
+  }
+
+  // Get bids older than 1 week, delete them
+  if (count($fa_deadlines) > 1) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('created', $fa_deadlines[1], '<')
+      ->condition('type', 'bid');
+
+    $nids = $query->execute();
+
+    foreach ($nids as $nid) {
+      $bid = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+      $bid->delete();
+    }
   }
 }

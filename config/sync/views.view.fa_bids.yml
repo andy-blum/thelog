@@ -763,6 +763,8 @@ display:
         style: false
         row: false
         header: false
+        filters: false
+        filter_groups: false
       fields:
         field_first_name:
           id: field_first_name
@@ -1224,6 +1226,23 @@ display:
           tokenize: false
           content: '<a href="/node/add/bid" class="uk-button uk-button-primary uk-button-small">Create New Bid</a> '
           plugin_id: text_custom
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            bid: bid
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

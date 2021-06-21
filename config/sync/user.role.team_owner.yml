@@ -22,4 +22,5 @@ permissions:
   - 'unflag tradable own items'
   - 'unflag untouchable own items'
   - 'unflag watchlist'
+  - 'view own unpublished content'
   - 'view the administration theme'
