@@ -3,3 +3,7 @@ services:
     class: Drupal\the_log_utilities\EventSubscriber\FlagSubscriber
     tags:
       - { name: event_subscriber }
+  the_log_utilities.feeds_subscriber:
+    class: Drupal\the_log_utilities\EventSubscriber\FeedsSubscriber
+    tags:
+      - { name: event_subscriber }
