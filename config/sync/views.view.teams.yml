@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.storage.user.field_dts_slots
     - field.storage.user.field_rank
     - field.storage.user.field_record
     - field.storage.user.field_total_contract_years
@@ -288,8 +289,8 @@ display:
           label: 'Total Contract Years'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: "{% if field_total_contract_years__value > 100 %}\r\n  <span class=\"uk-text-danger\">\r\n    {{ field_total_contract_years__value }}\r\n  </span>\r\n{% else %}\r\n  {{ field_total_contract_years__value }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -352,8 +353,8 @@ display:
           label: 'Active Contracts'
           exclude: false
           alter:
-            alter_text: false
-            text: '{{ field_total_contracts__value }}/40'
+            alter_text: true
+            text: "{% if field_total_contracts__value > 40 %}\r\n  <span class=\"uk-text-danger\">\r\n    {{ field_total_contracts__value }}\r\n  </span>\r\n{% else %}\r\n  {{ field_total_contracts__value }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -417,7 +418,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '${{ field_total_salary }}'
+            text: "{% if field_total_salary__value > 1000 %}\r\n  <span class=\"uk-text-danger\">\r\n    ${{ field_total_salary }}\r\n  </span>\r\n{% else %}\r\n  ${{ field_total_salary }}\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -461,6 +462,70 @@ display:
             prefix_suffix: true
             decimal_separator: .
             scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_dts_slots:
+          id: field_dts_slots
+          table: user__field_dts_slots
+          field: field_dts_slots
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'DTS Players'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{% if field_dts_slots__value > 13 %}\r\n  <span class=\"uk-text-danger\">\r\n    {{ field_dts_slots__value }}\r\n  </span>\r\n{% else %}\r\n  {{ field_dts_slots__value }}\r\n{% endif %}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -568,6 +633,7 @@ display:
         - 'languages:language_interface'
         - user.permissions
       tags:
+        - 'config:field.storage.user.field_dts_slots'
         - 'config:field.storage.user.field_rank'
         - 'config:field.storage.user.field_record'
         - 'config:field.storage.user.field_total_contract_years'
@@ -597,6 +663,7 @@ display:
         - 'languages:language_interface'
         - user.permissions
       tags:
+        - 'config:field.storage.user.field_dts_slots'
         - 'config:field.storage.user.field_rank'
         - 'config:field.storage.user.field_record'
         - 'config:field.storage.user.field_total_contract_years'
