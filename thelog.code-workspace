@@ -1,49 +1,51 @@
 {
-	"folders": [
-		{
-			"name": "Theme Root",
-			"path": "./web/themes/custom/thelog"
-		},
-		{
-			"name": "Modules",
-			"path": "./web/modules"
-		},
-		{
-			"name": "Project Root",
-			"path": "."
-		},
-		{
-			"name": "ESPN Scraper",
-			"path": "./scraper"
-		}
-	],
-	"settings": {
-		"terminal.integrated.cwd": "${workspaceFolder:Project Root}",
-		"editor.detectIndentation": false,
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2,
-		"files.insertFinalNewline": true,
-		"files.associations": {
-			"*.html": "twig",
-			"*.module": "php",
-			"*.theme": "php",
-			"*.inc": "php"
-		},
-		"files.enableTrash": true
-	},
-	"launch": {
-		"version": "0.2.0",
-		"configurations": [
-			{
-				"name": "Listen for XDebug (DDEV)",
-				"type": "php",
-				"request": "launch",
-				"hostname": "0.0.0.0",
-				"port": 9000,
-				"pathMappings": {
-					"/var/www/html": "${workspaceFolder:Project Root}",
-				}
-			}
-		]
-	},
+  "folders": [
+    {
+      "name": "Theme Root",
+      "path": "./web/themes/custom/thelog"
+    },
+    {
+      "name": "Modules",
+      "path": "./web/modules"
+    },
+    {
+      "name": "Project Root",
+      "path": "."
+    },
+    {
+      "name": "ESPN Scraper",
+      "path": "./scraper"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder:Project Root}",
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true,
+    "files.associations": {
+      "*.html": "twig",
+      "*.module": "php",
+      "*.theme": "php",
+      "*.inc": "php"
+    },
+    "files.enableTrash": true,
+    "intelephense.environment.phpVersion": "7.4.0",
+    "intelephense.environment.documentRoot": "${workspaceFolder:Project Root}",
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Listen for XDebug (DDEV)",
+        "type": "php",
+        "request": "launch",
+        "hostname": "0.0.0.0",
+        "port": 9000,
+        "pathMappings": {
+          "/var/www/html": "${workspaceFolder:Project Root}",
+        }
+      }
+    ]
+  }
 }
