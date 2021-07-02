@@ -19,3 +19,6 @@ libraries:
 
 stylesheets-remove:
   - '@uikit/css/uikit.toolbar.menu.css'
+
+libraries-override:
+  uikit/uikit: thelog/uikit

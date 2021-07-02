@@ -11,3 +11,16 @@ global-style:
       css/thelog.theme.css: {}
   js:
     js/thelog.theme.js: {}
+
+uikit:
+  version: 3.7.0
+  css:
+    base:
+      css/uikit.min.css: { minified: true }
+  js:
+    js/uikit.min.js: { minified: true }
+    js/uikit-icons.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
