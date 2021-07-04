@@ -13,45 +13,7 @@ dependencies:
     - node
 third_party_settings:
   feeds_tamper:
-    tampers:
-      e94e0a63-06f1-4d2e-86f6-4e46dcbcdb9a:
-        operation: multiplication
-        flip: false
-        value: !!float 110
-        plugin: math
-        source: field_salary
-        weight: 0
-        label: Math
-        uuid: e94e0a63-06f1-4d2e-86f6-4e46dcbcdb9a
-      7cefe272-0f85-44dd-a5c4-6385ec88847a:
-        operation: division
-        flip: false
-        value: !!float 100
-        plugin: math
-        source: field_salary
-        weight: 1
-        label: Math
-        uuid: 7cefe272-0f85-44dd-a5c4-6385ec88847a
-      6084a6c5-dadc-411d-9d60-b32899000a8f:
-        operation: subtraction
-        flip: false
-        value: !!float 1
-        plugin: math
-        source: field_years_remaining
-        weight: 0
-        label: Math
-        uuid: 6084a6c5-dadc-411d-9d60-b32899000a8f
-      bf1d23d1-9acd-4c40-9da0-b055d0969bb6:
-        find: ir
-        replace: active
-        case_sensitive: false
-        whole: true
-        plugin: find_replace
-        source: field_status
-        weight: 0
-        label: 'Find replace'
-        word_boundaries: false
-        uuid: bf1d23d1-9acd-4c40-9da0-b055d0969bb6
+    tampers: {  }
 id: contracts
 label: Contracts
 description: ''
