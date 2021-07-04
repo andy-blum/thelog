@@ -23,15 +23,50 @@ function the_log_utilities_preprocess_page(&$variables) {
  * Implements hook_form_alter().
  */
 function the_log_utilities_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (in_array($form_id, ['flag_confirm_form','unflag_confirm_form'])) {
+  if (in_array($form_id, ['flag_confirm_form', 'unflag_confirm_form'])) {
     $flag = \Drupal::routeMatch()->getParameter('flag');
     $type = $flag->getFlaggableEntityTypeId();
     $id = \Drupal::routeMatch()->getParameter('entity_id');
     $node = \Drupal::entityTypeManager()->getStorage($type)->load($id);
     $form['entity_info'] = [
-      '#markup' => '<p>' . $node->bundle() . ' - ' . $node->label() . '</p>'
+      '#markup' => '<p>' . ucfirst($node->bundle()) . ' - ' . $node->label() . '</p>'
     ];
+
+    if ($flag->id === 'promote') {
+      $form['field_years'] = [
+        '#title' => 'Contract Years',
+        '#title_display' => 'before',
+        '#description' => '',
+        '#required' => true,
+        '#type' => 'number',
+        '#min' => 0,
+        '#max' => 4,
+      ];
+
+      $form['contract_id'] = array(
+        '#type' => 'hidden',
+        '#value' => $id,
+      );
+
+      $form['actions']['submit']['#submit'][] = 'the_log_utilities_dts_promotion';
+    }
   }
+}
+
+/**
+ * Custom form submission functionality
+ */
+function the_log_utilities_dts_promotion(array $form, FormStateInterface $form_state) {
+
+  $values = $form_state->getValues();
+  $years = $values['field_years'];
+  $contract = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->load($values['contract_id']);
+
+  $contract->field_years_remaining->set(0, $years);
+  $contract->field_status->set(0, 'active');
+  $contract->save();
 }
 
 /**
@@ -88,9 +123,9 @@ function the_log_utilities_cron() {
    */
 
   $ids = \Drupal::entityQuery('user')
-	->condition('status', 1)
-	->condition('roles', 'team_owner')
-	->execute();
+    ->condition('status', 1)
+    ->condition('roles', 'team_owner')
+    ->execute();
 
   foreach ($ids as $id) {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
