@@ -71,12 +71,12 @@ class ContractManager {
           case 'active':
             $total_salary += $contract->field_salary_value;
             $total_years += $contract->field_years_remaining_value;
-            $active_contracts ++;
+            $active_contracts++;
             break;
 
           case 'dts':
             $total_salary += ($contract->field_salary_value / 10);
-            $dts_contracts ++;
+            $dts_contracts++;
             break;
 
           case 'ir':
@@ -86,14 +86,13 @@ class ContractManager {
 
           case 'waived':
             $total_salary += ($contract->field_salary_value / 2);
-            $total_years ++;
+            $total_years++;
             break;
 
           default:
             break;
         }
       }
-
     }
 
     return [

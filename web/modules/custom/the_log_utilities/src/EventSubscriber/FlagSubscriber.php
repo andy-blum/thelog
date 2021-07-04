@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @file
-* Contains \Drupal\the_log_utilities\EventSubscriber\FlagSubscriber.
-*/
+ * @file
+ * Contains \Drupal\the_log_utilities\EventSubscriber\FlagSubscriber.
+ */
 
 namespace Drupal\the_log_utilities\EventSubscriber;
 
@@ -94,7 +94,7 @@ class FlagSubscriber implements EventSubscriberInterface {
         $flag_service->unflag($flag, $entity);
       } else {
         $flag_service->unflag($flag, $entity);
-        \Drupal::messenger()->addWarning('Contract '. $entity->label() . ' is not eligible for IR.');
+        \Drupal::messenger()->addWarning('Contract ' . $entity->label() . ' is not eligible for IR.');
       }
     }
 
@@ -152,5 +152,4 @@ class FlagSubscriber implements EventSubscriberInterface {
     $events[KernelEvents::RESPONSE] = 'afterFlagChange';
     return $events;
   }
-
 }

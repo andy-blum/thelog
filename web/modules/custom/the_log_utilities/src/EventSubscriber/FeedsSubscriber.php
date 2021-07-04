@@ -1,9 +1,9 @@
 <?php
 
 /**
-* @file
-* Contains \Drupal\the_log_utilities\EventSubscriber\FlagSubscriber.
-*/
+ * @file
+ * Contains \Drupal\the_log_utilities\EventSubscriber\FlagSubscriber.
+ */
 
 namespace Drupal\the_log_utilities\EventSubscriber;
 
@@ -15,7 +15,6 @@ use Drupal\node\Entity\Node;
 class FeedsSubscriber implements EventSubscriberInterface {
 
   public function onImportFinished(ImportFinishedEvent $event) {
-
 
     $type = $event->getFeed()->getType()->id();
 
@@ -37,5 +36,4 @@ class FeedsSubscriber implements EventSubscriberInterface {
     $events[FeedsEvents::IMPORT_FINISHED][] = ['onImportFinished'];
     return $events;
   }
-
 }
