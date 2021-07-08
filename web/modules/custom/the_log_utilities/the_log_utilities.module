@@ -112,6 +112,100 @@ function the_log_utilities_entity_delete(EntityInterface $entity) {
   }
 }
 
+/**
+ * Implements hook_ENTITY_TYPE_insert().
+ */
+function the_log_utilities_comment_insert(Drupal\comment\Entity\Comment $comment) {
+  $comment_type = $comment->bundle();
+  $node = $comment->getCommentedEntity();
+  $parentComment = FALSE;
+  if ($comment->hasParentComment()) {
+    $parentComment = $comment->getParentComment();
+  }
+
+  $uids = \Drupal::entityQuery('user')
+    ->execute();
+
+  if ($comment_type == 'comment_forum') {
+    $fid = $node->get('taxonomy_forums')->getString();
+    $forum_name = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($fid)
+      ->label();
+
+    $to = [];
+
+    foreach ($uids as $uid) {
+      /**
+       * @var \Drupal\user\Entity\User
+       */
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+      if ($user->hasRole('team_owner')) {
+        $to[] = $user->getEmail();
+      }
+    }
+
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $module = 'the_log_utilities';
+    $key = 'forum_comment';
+    $to = implode(', ', $to);
+    $params['forum_node'] = $node;
+    $params['forum_name'] = $forum_name;
+    $params['comment'] = $comment;
+    $langcode = 'en';
+    $send = true;
+
+    if ($forum_name == '') {
+      # code...
+    }
+
+    $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+
+    if ($result['result'] !== true) {
+      $messenger = \Drupal::messenger();
+      $messenger->addError('There was a problem sending email notifications about this comment. Please tell Andy and update the other league members on Discord.');
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function the_log_utilities_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'forum_comment':
+
+      /**
+       * @var \Drupal\node\Entity\Node
+       */
+      $forum = $params['forum_node'];
+
+      /**
+       * @var String
+       */
+      $forum_name = $params['forum_name'];
+
+      /**
+       * @var \Drupal\comment\Entity\Comment
+       */
+      $comment = $params['comment'];
+
+      $date = new DateTime('now');
+
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = "The LOG: New post in {$forum_name}";
+      $message['body'][] = $comment
+        ->get('comment_body')
+        ->first()
+        ->getValue()['value'];
+      $message['body'][] = "<p><small>Posted by <a href=\"{$comment->getOwner()->toUrl()->toString()}\"> {$comment->getOwner()->getAccountName()}</a> at  {$date->format('M j, Y g:ia')}</small></p>";
+      break;
+
+    default;
+      break;
+  }
+}
 
 /**
  * Implements hook_cron().

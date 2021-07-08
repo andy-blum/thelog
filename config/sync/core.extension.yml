@@ -10,7 +10,6 @@ module:
   ckeditor: 0
   coffee: 0
   comment: 0
-  config: 0
   config_pages: 0
   contextual: 0
   cshs: 0
@@ -32,9 +31,11 @@ module:
   history: 0
   link: 0
   mail_login: 0
+  mailsystem: 0
   masquerade: 0
   menu_link_content: 0
   menu_ui: 0
+  mimemail: 0
   node: 0
   options: 0
   page_cache: 0
