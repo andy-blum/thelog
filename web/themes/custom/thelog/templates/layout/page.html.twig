@@ -50,8 +50,22 @@
   <header{{ header_attributes }}>
     {% if page.navbar %}
       <nav{{ navbar_attributes }}>
-        <div class="uk-width-1-1">
+        <div class="uk-width-1-1 uk-visible@m">
           {{ page.navbar }}
+        </div>
+        <div class="uk-width-1-1 uk-flex uk-flex-between uk-hidden@m">
+          <div uk-grid="small">
+            {% if page.offcanvas %}
+              <div>
+                <button class="uk-button" uk-toggle="target: #offcanvas">
+                  <span uk-icon="menu"><span class="visually-hidden">Toggle Menu</span></span>
+                </button>
+              </div>
+            {% endif %}
+            <div class="uk-flex uk-flex-middle">
+              <h1 class="uk-h4">The LOG Rosters</h1>
+            </div>
+          </div>
         </div>
       </nav>
     {% endif %}
@@ -93,9 +107,10 @@
     </footer>
   {% endif %}
 
-  {% if page.offcanvas %}
+
     <div id="offcanvas" uk-offcanvas>
-      {{ page.offcanvas }}
+      {% if page.offcanvas %}
+        {{ page.offcanvas }}
+      {% endif %}
     </div>
-  {% endif %}
 </div>

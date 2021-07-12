@@ -3,13 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_espn_id
-    - field.storage.node.field_first_name
-    - field.storage.node.field_last_name
-    - field.storage.node.field_nfl_team
-    - field.storage.node.field_position
-    - field.storage.node.field_salary
-    - field.storage.node.field_years_remaining
+    - core.entity_view_mode.node.table_cell
     - flag.flag.watchlist
     - node.type.player
   module:
@@ -116,14 +110,14 @@ display:
       row:
         type: fields
       fields:
-        link_flag:
-          id: link_flag
-          table: flagging
-          field: link_flag
-          relationship: flag_relationship
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
+          relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Player
           exclude: false
           alter:
             alter_text: false
@@ -156,56 +150,6 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          entity_type: flagging
-          plugin_id: flag_link
-        field_espn_id:
-          id: field_espn_id
-          table: node__field_espn_id
-          field: field_espn_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'ESPN ID'
-          exclude: true
-          alter:
-            alter_text: true
-            text: "<a href=\"https://www.espn.com/nfl/player/_/id/{{ field_espn_id__value }}\" target=\"_blank\" class=\"uk-link-reset\">\r\n<img data-src=\"https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/{{ field_espn_id__value }}.png&w=50&h=50&scale=crop\" width=\"50\" height=\"50\" uk-img class=\"uk-border-circle uk-background-muted\">\r\n</a>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
           element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -214,403 +158,9 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_first_name:
-          id: field_first_name
-          table: node__field_first_name
-          field: field_first_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_nfl_team:
-          id: field_nfl_team
-          table: node__field_nfl_team
-          field: field_nfl_team
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Team
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_position:
-          id: field_position
-          table: node__field_position
-          field: field_position
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Position
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_salary:
-          id: field_salary
-          table: node__field_salary
-          field: field_salary
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Salary
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_decimal
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-            decimal_separator: .
-            scale: 2
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_years_remaining:
-          id: field_years_remaining
-          table: node__field_years_remaining
-          field: field_years_remaining
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Years Remaining'
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: 'No Contract'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_last_name:
-          id: field_last_name
-          table: node__field_last_name
-          field: field_last_name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<div uk-grid class=\"uk-grid-small\">\r\n\r\n<div>{{ field_espn_id }}</div>\r\n\r\n<div>\r\n<span class=\"uk-text-bold uk-margin-small-left\">\r\n{{ field_first_name }} {{ field_last_name }}</span>\r\n<br/>\r\n<small>{{ field_position }}, {{ field_nfl_team }} - {{ field_salary }} {{ field_years_remaining }}</small>\r\n\r\n</div>\r\n</div>\r\n\r\n\r\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          view_mode: table_cell
+          entity_type: node
+          plugin_id: rendered_entity
       filters:
         status:
           value: '1'
@@ -669,18 +219,25 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_espn_id'
-        - 'config:field.storage.node.field_first_name'
-        - 'config:field.storage.node.field_last_name'
-        - 'config:field.storage.node.field_nfl_team'
-        - 'config:field.storage.node.field_position'
-        - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.node.field_years_remaining'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
   block_1:
     display_plugin: block
     id: block_1
@@ -691,15 +248,22 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_espn_id'
-        - 'config:field.storage.node.field_first_name'
-        - 'config:field.storage.node.field_last_name'
-        - 'config:field.storage.node.field_nfl_team'
-        - 'config:field.storage.node.field_position'
-        - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.node.field_years_remaining'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'

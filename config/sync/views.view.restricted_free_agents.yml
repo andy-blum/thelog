@@ -3,14 +3,17 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_first_name
+    - core.entity_view_mode.node.table_cell
     - field.storage.node.field_last_name
+    - field.storage.node.field_salary
+    - field.storage.taxonomy_term.field_roster_order
     - flag.flag.terminate_contract
     - node.type.contract
     - system.menu.main
   module:
     - flag
     - node
+    - taxonomy
     - user
 id: restricted_free_agents
 label: 'Restricted Free Agents'
@@ -58,27 +61,141 @@ display:
           offset: 0
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            rendered_entity: rendered_entity
+            field_last_name: field_last_name
+            name_1: name_1
+            field_roster_order: field_roster_order
+            field_salary: field_salary
+            name: name
+            link_flag: link_flag
+          info:
+            rendered_entity:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_last_name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_roster_order:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_salary:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+            name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+            link_flag:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+          default: '-1'
+          empty_table: false
       row:
         type: fields
       fields:
-        node_bulk_form:
-          id: node_bulk_form
+        rendered_entity:
+          id: rendered_entity
           table: node
-          field: node_bulk_form
-          entity_type: node
-          plugin_id: node_bulk_form
-        field_first_name:
-          id: field_first_name
-          table: node__field_first_name
-          field: field_first_name
+          field: rendered_entity
           relationship: field_player
           group_type: group
           admin_label: ''
-          label: 'First Name'
-          exclude: false
+          label: Player
+          exclude: true
           alter:
             alter_text: false
             text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view_mode: table_cell
+          entity_type: node
+          plugin_id: rendered_entity
+        field_last_name:
+          id: field_last_name
+          table: node__field_last_name
+          field: field_last_name
+          relationship: field_player
+          group_type: group
+          admin_label: ''
+          label: Player
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ rendered_entity }}'
             make_link: false
             path: ''
             absolute: false
@@ -130,15 +247,15 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_last_name:
-          id: field_last_name
-          table: node__field_last_name
-          field: field_last_name
-          relationship: field_player
+        name_1:
+          id: name_1
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_position
           group_type: group
           admin_label: ''
-          label: 'Last Name'
-          exclude: false
+          label: Position
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -192,6 +309,204 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          convert_spaces: false
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
+        field_roster_order:
+          id: field_roster_order
+          table: taxonomy_term__field_roster_order
+          field: field_roster_order
+          relationship: field_position
+          group_type: group
+          admin_label: ''
+          label: Position
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ name_1 }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_salary:
+          id: field_salary
+          table: node__field_salary
+          field: field_salary
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Salary
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: 'Prev Owner'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: user_name
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: name
           plugin_id: field
         link_flag:
           id: link_flag
@@ -200,7 +515,7 @@ display:
           relationship: flag_relationship
           group_type: group
           admin_label: ''
-          label: 'Terminate Contract'
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -233,7 +548,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -313,7 +628,31 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-      sorts: {  }
+      sorts:
+        field_roster_order_value:
+          id: field_roster_order_value
+          table: taxonomy_term__field_roster_order
+          field: field_roster_order_value
+          relationship: field_position
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        field_salary_value:
+          id: field_salary_value
+          table: node__field_salary
+          field: field_salary_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       title: 'Restricted Free Agents'
       header: {  }
       footer: {  }
@@ -340,18 +679,56 @@ display:
           user_scope: any
           entity_type: node
           plugin_id: flag_relationship
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+        field_position:
+          id: field_position
+          table: node__field_position
+          field: field_position
+          relationship: field_player
+          group_type: group
+          admin_label: 'field_position: Taxonomy term'
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_first_name'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_last_name'
+        - 'config:field.storage.node.field_salary'
+        - 'config:field.storage.taxonomy_term.field_roster_order'
   page_1:
     display_plugin: page
     id: page_1
@@ -369,14 +746,32 @@ display:
         weight: -46
         context: '0'
         menu_name: main
-        enabled: false
+        enabled: true
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_first_name'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_last_name'
+        - 'config:field.storage.node.field_salary'
+        - 'config:field.storage.taxonomy_term.field_roster_order'

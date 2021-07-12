@@ -1,0 +1,10 @@
+uuid: 3217de83-9235-4dad-8650-d17481971c3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.flags
+label: Flags
+targetEntityType: node
+cache: true

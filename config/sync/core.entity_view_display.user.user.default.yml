@@ -22,7 +22,12 @@ id: user.user.default
 targetEntityType: user
 bundle: user
 mode: default
-content: {  }
+content:
+  masquerade:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   feeds_item: true
   field_contract_cap_remaining: true
@@ -37,5 +42,4 @@ hidden:
   field_total_contract_years: true
   field_total_contracts: true
   field_total_salary: true
-  masquerade: true
   member_for: true

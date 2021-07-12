@@ -24,7 +24,11 @@ function thelog_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK().
  */
 function thelog_preprocess_node(&$variables) {
+  /**
+   * @var \Drupal\node\Entity\Node
+   */
   $node = $variables['node'];
+  $type = $node->bundle();
 
   $flag_types = \Drupal::service('flag')->getAllFlags('node', 'contract');
   $flags = [];
@@ -34,7 +38,79 @@ function thelog_preprocess_node(&$variables) {
   }
 
   $variables['flags'] = $flags;
+
+  if ($type === 'player') {
+    $injury_status = $node->get('field_injury_status')->referencedEntities();
+    $variables['injury_status'] = $injury_status[0]->label();
+
+    if (!$node->get('field_is_rookie')->isEmpty()) {
+      $isRookie = boolval($node->get('field_is_rookie')->first()->getValue()['value']);
+      $variables['is_rookie'] = $isRookie;
+    }
+
+    $flaglink = \Drupal::service('flag.link_builder')
+      ->build('node', $node->id(), 'watchlist');
+    $variables['add_to_watchlist'] = $flaglink;
+
+    /**
+     * @var \Drupal\node\Entity\Node
+     */
+    $has_contract = !$node->get('field_contract')->isEmpty();
+    $contract_info = null;
+    if ($has_contract) {
+      $contract = $node->get('field_contract')->referencedEntities()[0];
+      $years = intval($contract->get('field_years_remaining')
+        ->first()->getValue()['value']);
+      $salary = strval(
+        number_format(
+          floatval(
+            $contract->get('field_salary')
+              ->first()->getValue()['value']
+          ),
+          2
+        )
+      );
+
+      $contract_info = "(\${$salary} {$years}yrs)";
+    } else {
+      $contract_info = "(FA)";
+    }
+    $variables['contract_info'] = $contract_info;
+  }
+
+  if ($type === 'contract') {
+    $flaglink = \Drupal::service('flag.link_builder');
+    $status = $node->get('field_status')->getString();
+
+    switch ($status) {
+      case 'active':
+        $flag_types = [
+          'tradable',
+          'untouchable',
+          'injured_reserve',
+          'waived',
+        ];
+        break;
+
+      case 'dts':
+        $flag_types = [
+          'tradable',
+          'untouchable',
+          'promote',
+          'waived',
+        ];
+        break;
+
+      default:
+        $flag_types = [];
+        break;
+    }
+
+    $variables['flag_links'] = [];
+
+    foreach ($flag_types as $flag_type) {
+      $variables['flag_links'][] = $flaglink
+        ->build('node', $node->id(), $flag_type);
+    }
+  }
 }
-
-
-

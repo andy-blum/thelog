@@ -10,6 +10,7 @@ module:
   ckeditor: 0
   coffee: 0
   comment: 0
+  config: 0
   config_pages: 0
   contextual: 0
   cshs: 0
@@ -55,6 +56,7 @@ module:
   the_log_utilities: 0
   token: 0
   toolbar: 0
+  twig_field_value: 0
   twig_tweak: 0
   update: 0
   user: 0

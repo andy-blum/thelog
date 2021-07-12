@@ -1,0 +1,22 @@
+uuid: 02217ca6-1395-4bd7-8385-b98803068e5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: forum_topics
+label: 'Forum Topics'
+type: 'canonical_entities:node'
+pattern: 'forum/[node:taxonomy_forums:entity:name]/[node:title]'
+selection_criteria:
+  22455dee-fec0-4aaf-be23-9b02d6ae81c2:
+    id: node_type
+    bundles:
+      forum: forum
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 22455dee-fec0-4aaf-be23-9b02d6ae81c2
+selection_logic: and
+weight: -5
+relationships: {  }

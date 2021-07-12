@@ -36,13 +36,8 @@
  * @ingroup uikit_themeable
  */
 #}
-{%
-  set classes = [
-    'uk-visible@m',
-  ]
-%}
 {% if content %}
-  <div{{ attributes.addClass(classes) }}>
+  <div{{ attributes }}>
     {% set heading_id = attributes.id ~ '-menu'|clean_id %}
     {# Label. If not displayed, we still provide it for screen readers. #}
     {% if not configuration.label_display %}

@@ -45,6 +45,7 @@
     "drupal/rabbit_hole": "^1.0@beta",
     "drupal/smtp": "^1.0",
     "drupal/token": "^1.9",
+    "drupal/twig_field_value": "^2.0",
     "drupal/twig_tweak": "^3.1",
     "drupal/uikit": "^3.15",
     "drupal/webform": "^6.0",
