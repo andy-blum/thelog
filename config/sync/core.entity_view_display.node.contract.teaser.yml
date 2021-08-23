@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.contract.feeds_item
+    - field.field.node.contract.field_is_franchise_tagged
     - field.field.node.contract.field_player
     - field.field.node.contract.field_salary
     - field.field.node.contract.field_status
@@ -47,6 +48,21 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  flag_injured_reserve:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_promote:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_terminate_contract:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   flag_tradable:
     weight: 10
     settings: {  }
@@ -64,6 +80,7 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_is_franchise_tagged: true
   field_player: true
   field_status: true
   flag_watchlist: true

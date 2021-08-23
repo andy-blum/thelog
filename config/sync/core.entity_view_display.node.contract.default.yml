@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.contract.feeds_item
+    - field.field.node.contract.field_is_franchise_tagged
     - field.field.node.contract.field_player
     - field.field.node.contract.field_salary
     - field.field.node.contract.field_status
@@ -15,7 +16,17 @@ id: node.contract.default
 targetEntityType: node
 bundle: contract
 mode: default
-content: {  }
+content:
+  field_is_franchise_tagged:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
 hidden:
   feeds_item: true
   field_player: true

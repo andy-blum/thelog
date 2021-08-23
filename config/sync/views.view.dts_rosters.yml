@@ -1,24 +1,20 @@
-uuid: 5ed05af3-b603-43b3-8fa0-1d56acf10bf9
+uuid: 9697bd80-bd9a-4bf9-944d-5bd6238658e3
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_espn_id
+    - core.entity_view_mode.node.table_cell
     - field.storage.node.field_first_name
     - field.storage.node.field_last_name
-    - field.storage.node.field_nfl_team
-    - field.storage.node.field_position
-    - field.storage.node.field_salary
-    - field.storage.node.field_years_remaining
-    - field.storage.user.field_espn_abbr
+    - flag.flag.contract_needs_attention
     - node.type.contract
-    - system.menu.main
   module:
+    - flag
     - node
     - options
     - user
-id: waiver_wire
-label: 'Waiver Wire'
+id: dts_rosters
+label: 'DTS Rosters'
 module: views
 description: ''
 tag: ''
@@ -57,91 +53,14 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: none
         options:
-          items_per_page: 50
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
         type: table
       row:
         type: fields
       fields:
-        field_espn_id:
-          id: field_espn_id
-          table: node__field_espn_id
-          field: field_espn_id
-          relationship: field_player
-          group_type: group
-          admin_label: ''
-          label: 'ESPN ID'
-          exclude: true
-          alter:
-            alter_text: true
-            text: "<a href=\"https://www.espn.com/nfl/player/_/id/{{ field_espn_id__value }}\" target=\"_blank\" class=\"uk-link-reset\">\r\n<img data-src=\"https://a.espncdn.com/combiner/i?img=/i/headshots/nfl/players/full/{{ field_espn_id__value }}.png&w=50&h=50&scale=crop\" width=\"50\" height=\"50\" uk-img class=\"uk-border-circle uk-background-muted\">\r\n</a>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_first_name:
           id: field_first_name
           table: node__field_first_name
@@ -212,11 +131,128 @@ display:
           relationship: field_player
           group_type: group
           admin_label: ''
+          label: 'Last Name'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        flagged:
+          id: flagged
+          table: flagging
+          field: flagged
+          relationship: flag_relationship
+          group_type: group
+          admin_label: ''
+          label: Flagged
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ flagged|lower }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: true-false
+          type_custom_true: ''
+          type_custom_false: ''
+          not: 0
+          entity_type: flagging
+          plugin_id: flag_flagged
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
+          relationship: field_player
+          group_type: group
+          admin_label: ''
           label: Player
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_espn_id }}\r\n<span class=\"uk-text-bold uk-margin-small-left\">{{field_first_name|raw}} {{field_last_name|raw}}</span>"
+            text: "{% if flagged == 'true' %}\r\n  <div class=\"uk-text-danger\">{{ rendered_entity }}</div>\r\n{% else %}\r\n  <div>{{ rendered_entity }}</div>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -253,29 +289,17 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_position:
-          id: field_position
-          table: node__field_position
-          field: field_position
-          relationship: field_player
+          view_mode: table_cell
+          entity_type: node
+          plugin_id: rendered_entity
+        link_flag:
+          id: link_flag
+          table: flagging
+          field: link_flag
+          relationship: flag_relationship
           group_type: group
           admin_label: ''
-          label: Position
+          label: Flag
           exclude: false
           alter:
             alter_text: false
@@ -316,277 +340,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_nfl_team:
-          id: field_nfl_team
-          table: node__field_nfl_team
-          field: field_nfl_team
-          relationship: field_player
-          group_type: group
-          admin_label: ''
-          label: 'NFL Team'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_salary:
-          id: field_salary
-          table: node__field_salary
-          field: field_salary
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Salary
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_decimal
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-            decimal_separator: .
-            scale: 2
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_years_remaining:
-          id: field_years_remaining
-          table: node__field_years_remaining
-          field: field_years_remaining
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Years Remaining'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_espn_abbr:
-          id: field_espn_abbr
-          table: user__field_espn_abbr
-          field: field_espn_abbr
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: 'LOG Team'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          entity_type: flagging
+          plugin_id: flag_link
       filters:
         status:
           value: '1'
@@ -622,7 +377,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            waived: waived
+            dts: dts
           group: 1
           exposed: false
           expose:
@@ -654,23 +409,53 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
-      sorts:
-        changed:
-          id: changed
-          table: node_field_data
-          field: changed
+        combine:
+          id: combine
+          table: views
+          field: combine
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
-          exposed: false
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
           expose:
+            operator_id: combine_op
+            label: Name
+            description: ''
+            use_operator: false
+            operator: combine_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              team_owner: '0'
+              commissioner: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
             label: ''
-          granularity: second
-          entity_type: node
-          entity_field: changed
-          plugin_id: date
-      title: 'Waiver Wire'
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            field_first_name: field_first_name
+            field_last_name: field_last_name
+          plugin_id: combine
+      sorts: {  }
+      title: 'DTS Rosters'
       header: {  }
       footer: {  }
       empty: {  }
@@ -684,36 +469,48 @@ display:
           admin_label: 'field_player: Content'
           required: false
           plugin_id: standard
-        uid:
-          id: uid
+        flag_relationship:
+          id: flag_relationship
           table: node_field_data
-          field: uid
+          field: flag_relationship
           relationship: none
           group_type: group
-          admin_label: author
+          admin_label: Flags
           required: false
+          flag: contract_needs_attention
+          user_scope: current
           entity_type: node
-          entity_field: uid
-          plugin_id: standard
+          plugin_id: flag_relationship
       arguments: {  }
       display_extenders: {  }
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_espn_id'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_first_name'
         - 'config:field.storage.node.field_last_name'
-        - 'config:field.storage.node.field_nfl_team'
-        - 'config:field.storage.node.field_position'
-        - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.node.field_years_remaining'
-        - 'config:field.storage.user.field_espn_abbr'
   page_1:
     display_plugin: page
     id: page_1
@@ -721,25 +518,31 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: waiver-wire
-      menu:
-        type: normal
-        title: 'Waiver Wire'
-        menu_name: main
+      path: dts
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_espn_id'
+        - 'config:core.entity_view_display.node.bid.default'
+        - 'config:core.entity_view_display.node.bid.teaser'
+        - 'config:core.entity_view_display.node.book.default'
+        - 'config:core.entity_view_display.node.book.teaser'
+        - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
+        - 'config:core.entity_view_display.node.contract.teaser'
+        - 'config:core.entity_view_display.node.forum.default'
+        - 'config:core.entity_view_display.node.forum.teaser'
+        - 'config:core.entity_view_display.node.player.default'
+        - 'config:core.entity_view_display.node.player.table_cell'
+        - 'config:core.entity_view_display.node.player.teaser'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.default'
+        - 'config:core.entity_view_display.node.rookie_draft_pick.teaser'
+        - 'config:core.entity_view_display.node.webform.default'
+        - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_first_name'
         - 'config:field.storage.node.field_last_name'
-        - 'config:field.storage.node.field_nfl_team'
-        - 'config:field.storage.node.field_position'
-        - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.node.field_years_remaining'
-        - 'config:field.storage.user.field_espn_abbr'

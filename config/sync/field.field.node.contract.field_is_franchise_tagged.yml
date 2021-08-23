@@ -1,0 +1,23 @@
+uuid: 6aa68c94-94e1-43dd-a007-688aa2a8e78d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_franchise_tagged
+    - node.type.contract
+id: node.contract.field_is_franchise_tagged
+field_name: field_is_franchise_tagged
+entity_type: node
+bundle: contract
+label: 'Is Franchise Tagged'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'True'
+  off_label: 'False'
+field_type: boolean

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.flags
     - field.field.node.contract.feeds_item
+    - field.field.node.contract.field_is_franchise_tagged
     - field.field.node.contract.field_player
     - field.field.node.contract.field_salary
     - field.field.node.contract.field_status
@@ -100,3 +101,4 @@ content:
     region: content
 hidden:
   feeds_item: true
+  field_is_franchise_tagged: true
