@@ -644,11 +644,11 @@ display:
         type: entity_reference
         options:
           search_fields:
+            title: title
             field_first_name: field_first_name
             field_last_name: field_last_name
-            field_position: field_position
-            title: '0'
             field_nfl_team: '0'
+            field_position: '0'
       fields:
         title:
           id: title
@@ -970,6 +970,11 @@ display:
       defaults:
         fields: false
         sorts: true
+      pager:
+        type: some
+        options:
+          items_per_page: 20
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:

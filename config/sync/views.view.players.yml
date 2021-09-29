@@ -668,7 +668,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: cshs
+          type: select
           limit: true
           vid: eligible_positions
           hierarchy: true
@@ -724,6 +724,55 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: boolean
+        field_contract_target_id:
+          id: field_contract_target_id
+          table: node__field_contract
+          field: field_contract_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: contract_op
+            label: 'Player Contract'
+            description: '"is empty" will show free agents.'
+            use_operator: true
+            operator: field_contract_target_id_op
+            operator_limit_selection: true
+            operator_list:
+              empty: empty
+              'not empty': 'not empty'
+            identifier: contract
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              team_owner: '0'
+              commissioner: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
       sorts:
         field_adp_value:
           id: field_adp_value
@@ -805,6 +854,7 @@ display:
         - 'config:core.entity_view_display.node.book.default'
         - 'config:core.entity_view_display.node.book.teaser'
         - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
         - 'config:core.entity_view_display.node.contract.teaser'
         - 'config:core.entity_view_display.node.forum.default'
         - 'config:core.entity_view_display.node.forum.teaser'
@@ -848,6 +898,7 @@ display:
         - 'config:core.entity_view_display.node.book.default'
         - 'config:core.entity_view_display.node.book.teaser'
         - 'config:core.entity_view_display.node.contract.default'
+        - 'config:core.entity_view_display.node.contract.flags'
         - 'config:core.entity_view_display.node.contract.teaser'
         - 'config:core.entity_view_display.node.forum.default'
         - 'config:core.entity_view_display.node.forum.teaser'
