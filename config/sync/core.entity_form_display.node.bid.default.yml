@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.bid.field_bid_dts
     - field.field.node.bid.field_bid_salary
     - field.field.node.bid.field_bid_years
+    - field.field.node.bid.field_effective_salary
     - field.field.node.bid.field_player
     - field.field.node.bid.field_team
     - node.type.bid
@@ -23,6 +24,13 @@ content:
     region: content
   field_bid_years:
     weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_effective_salary:
+    weight: 26
     settings:
       placeholder: ''
     third_party_settings: {  }

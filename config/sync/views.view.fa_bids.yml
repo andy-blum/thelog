@@ -571,7 +571,7 @@ display:
           click_sort_column: value
           type: boolean
           settings:
-            format: yes-no
+            format: boolean
             format_custom_true: ''
             format_custom_false: ''
           group_column: value
@@ -702,10 +702,10 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts:
-        field_bid_salary_value:
-          id: field_bid_salary_value
-          table: node__field_bid_salary
-          field: field_bid_salary_value
+        field_bid_years_value:
+          id: field_bid_years_value
+          table: node__field_bid_years
+          field: field_bid_years_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -714,22 +714,22 @@ display:
           expose:
             label: ''
           plugin_id: standard
-        field_bid_dts_value:
-          id: field_bid_dts_value
-          table: node__field_bid_dts
-          field: field_bid_dts_value
-          relationship: none
+        field_rank_value:
+          id: field_rank_value
+          table: user__field_rank
+          field: field_rank_value
+          relationship: field_team
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
           plugin_id: standard
-        field_bid_years_value:
-          id: field_bid_years_value
-          table: node__field_bid_years
-          field: field_bid_years_value
+        field_effective_salary_value:
+          id: field_effective_salary_value
+          table: node__field_effective_salary
+          field: field_effective_salary_value
           relationship: none
           group_type: group
           admin_label: ''

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.bid.field_bid_dts
     - field.field.node.bid.field_bid_salary
     - field.field.node.bid.field_bid_years
+    - field.field.node.bid.field_effective_salary
     - field.field.node.bid.field_player
     - field.field.node.bid.field_team
     - node.type.bid
@@ -31,5 +32,6 @@ hidden:
   field_bid_dts: true
   field_bid_salary: true
   field_bid_years: true
+  field_effective_salary: true
   field_player: true
   field_team: true

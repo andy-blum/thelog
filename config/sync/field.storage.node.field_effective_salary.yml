@@ -1,0 +1,18 @@
+uuid: d65a5c09-4c43-40be-88f0-aa78079c6e79
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_effective_salary
+field_name: field_effective_salary
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

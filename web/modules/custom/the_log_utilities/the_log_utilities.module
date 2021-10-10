@@ -100,6 +100,13 @@ function the_log_utilities_entity_presave(EntityInterface $entity) {
   if ($eid == 'node' && $bundle == 'bid' && $isNew) {
     $entity->field_team->set(0, $entity->getOwner());
   }
+
+  if ($eid == 'node' && $bundle == 'bid') {
+    $salary = floatval($entity->field_bid_salary->first()->getValue()['value']);
+    $isDTS = boolval($entity->field_bid_dts->first()->getValue()['value']);
+    $effective_salary = $isDTS ? $salary / 10 : $salary;
+    $entity->field_effective_salary->set(0, $effective_salary);
+  }
 }
 
 /**
@@ -111,6 +118,13 @@ function the_log_utilities_entity_update(EntityInterface $entity) {
 
   if ($eid == 'node' && $bundle == 'contract') {
     ContractManager::updateCapHit($entity->getOwner());
+  }
+
+  if ($eid == 'node' && $bundle == 'bid') {
+    $salary = floatval($entity->field_bid_salary->first()->getValue()['value']);
+    $isDTS = boolval($entity->field_bid_dts->first()->getValue()['value']);
+    $effective_salary = $isDTS ? $salary / 10 : $salary;
+    $entity->field_effective_salary->set(0, $effective_salary);
   }
 }
 

@@ -1,0 +1,23 @@
+uuid: 04d9f9bc-0238-486c-b040-56c7e8b02866
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_effective_salary
+    - node.type.bid
+id: node.bid.field_effective_salary
+field_name: field_effective_salary
+entity_type: node
+bundle: bid
+label: 'Effective Salary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float
