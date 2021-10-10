@@ -289,17 +289,10 @@ function the_log_utilities_cron() {
       $bid = (object) [
         'player' => $player_id,
         'team' => $node->getOwnerId(),
-        'is_dts' => boolval($node->get('field_bid_dts')->getValue()[0]['value']),
         'years' => intval($node->get('field_bid_years')->getValue()[0]['value']),
         'owner_rank' => intval($node->getOwner()->get('field_rank')->getValue()[0]['value']),
-        'salary' => intval($node->get('field_bid_salary')->getValue()[0]['value']),
+        'effective' => floatval($node->get('field_effective_salary')->getValue()[0]['value'])
       ];
-
-      if ($bid->is_dts) {
-        $bid->effective = ($bid->salary) / 10;
-      } else {
-        $bid->effective = $bid->salary;
-      }
 
       $grouped_bids[$player_id][] = $bid;
 
