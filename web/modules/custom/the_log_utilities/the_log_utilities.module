@@ -12,6 +12,8 @@
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\the_log_utilities\ContractManager;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\Node;
+
 
 /**
  * Implements hook_preprocess_HOOK().
@@ -213,21 +215,7 @@ function the_log_utilities_mail($key, &$message, $params) {
 function the_log_utilities_cron() {
 
   /**
-   * Update cap values.
-   */
-
-  $ids = \Drupal::entityQuery('user')
-    ->condition('status', 1)
-    ->condition('roles', 'team_owner')
-    ->execute();
-
-  foreach ($ids as $id) {
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
-    ContractManager::updateCapHit($user);
-  }
-
-  /**
-   * Publish bids after deadline.
+   * Publish bids after deadline & award winning contracts.
    */
 
   // Get list of FA datetimes and current time
@@ -259,16 +247,84 @@ function the_log_utilities_cron() {
       ->condition('type', 'bid');
 
     $nids = $query->execute();
-
     $user_1 = \Drupal::entityTypeManager()->getStorage('user')->load('1');
+    $grouped_bids = [];
 
+    // Group competing bids for sorting.
     // Publish & change ownership on all matching nodes.
     foreach ($nids as $nid) {
-      $bid = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
-      $bid->setPublished();
-      $bid->setOwner($user_1);
-      $bid->save();
+      /**
+       * @var \Drupal\Core\Entity\Node $node
+       */
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+
+      $player_id = $node->get('field_player')->getValue()[0]['target_id'];
+
+      $bid = (object) [
+        'player' => $player_id,
+        'team' => $node->getOwnerId(),
+        'is_dts' => boolval($node->get('field_bid_dts')->getValue()[0]['value']),
+        'years' => intval($node->get('field_bid_years')->getValue()[0]['value']),
+        'owner_rank' => intval($node->getOwner()->get('field_rank')->getValue()[0]['value']),
+        'salary' => intval($node->get('field_bid_salary')->getValue()[0]['value']),
+      ];
+
+      if ($bid->is_dts) {
+        $bid->effective = ($bid->salary) / 10;
+      } else {
+        $bid->effective = $bid->salary;
+      }
+
+      $grouped_bids[$player_id][] = $bid;
+
+      $node->setPublished();
+      $node->setOwner($user_1);
+      $node->save();
     }
+  }
+
+  // Sort groups, award contract to winning bid
+  foreach ($grouped_bids as $group) {
+    $debug = true;
+    if (count($group) > 1) {
+      $bid_priority = array(
+        function ($a, $b) {
+          return $b->effective <=> $a->effective;
+        },
+        function ($a, $b) {
+          return $b->years <=> $a->years;
+        },
+        function ($a, $b) {
+          return $b->owner_rank <=> $a->owner_rank;
+        },
+      );
+
+      usort($group, function ($a, $b) use ($bid_priority) {
+        foreach ($bid_priority as $cmpFn) {
+          $diff = call_user_func($cmpFn, $a, $b);
+          if ($diff !== 0) {
+            return $diff;
+          }
+        }
+        return 0;
+      });
+    }
+
+    $winner = $group[0];
+    $player = \Drupal::entityTypeManager()->getStorage('node')->load($winner->player);
+    $team = \Drupal::entityTypeManager()->getStorage('user')->load($winner->team);
+
+    $contract = Node::create([
+      'type' => 'contract',
+    ]);
+
+    $contract->set('field_player', $player);
+    $contract->set('field_salary', $winner->salary);
+    $contract->set('field_years_remaining', $winner->years);
+    $contract->set('field_status', $winner->is_dts ? 'dts' : 'active');
+    $contract->setOwner($team);
+
+    $contract->save();
   }
 
   // Get bids older than 1 week, delete them
@@ -283,5 +339,19 @@ function the_log_utilities_cron() {
       $bid = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
       $bid->delete();
     }
+  }
+
+  /**
+   * Update cap values.
+   */
+
+  $ids = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('roles', 'team_owner')
+    ->execute();
+
+  foreach ($ids as $id) {
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($id);
+    ContractManager::updateCapHit($user);
   }
 }
