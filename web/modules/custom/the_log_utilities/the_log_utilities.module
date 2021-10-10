@@ -103,6 +103,18 @@ function the_log_utilities_entity_presave(EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_entity_update().
+ */
+function the_log_utilities_entity_update(EntityInterface $entity) {
+  $eid = $entity->getEntityTypeId();
+  $bundle = $entity->bundle();
+
+  if ($eid == 'node' && $bundle == 'contract') {
+    ContractManager::updateCapHit($entity->getOwner());
+  }
+}
+
+/**
  * Implements hook_entity_delete().
  */
 function the_log_utilities_entity_delete(EntityInterface $entity) {
