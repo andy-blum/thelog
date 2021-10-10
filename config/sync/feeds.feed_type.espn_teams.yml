@@ -37,9 +37,6 @@ parser_configuration:
     abbr:
       label: abbr
       value: abbr
-    finalstandingsposition:
-      label: finalStandingsPosition
-      value: finalStandingsPosition
     playoffseed:
       label: playoffSeed
       value: playoffSeed
@@ -117,7 +114,7 @@ mappings:
   -
     target: field_rank
     map:
-      value: finalstandingsposition
+      value: playoffseed
     unique: {  }
     settings:
       language: null
