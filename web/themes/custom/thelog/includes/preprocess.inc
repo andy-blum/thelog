@@ -59,17 +59,25 @@ function thelog_preprocess_node(&$variables) {
     $contract_info = null;
     if ($has_contract) {
       $contract = $node->get('field_contract')->referencedEntities()[0];
-      $years = intval($contract->get('field_years_remaining')
-        ->first()->getValue()['value']);
-      $salary = strval(
-        number_format(
-          floatval(
-            $contract->get('field_salary')
-              ->first()->getValue()['value']
-          ),
-          2
-        )
-      );
+      
+      $years = "??";
+      if (!$contract->field_years_remaining->isEmpty()) {
+        $years = intval($contract->get('field_years_remaining')
+          ->first()->getValue()['value']);
+      }
+      
+      $salary = "??";
+      if (!$contract->field_salary->isEmpty()) {
+        $salary = strval(
+          number_format(
+            floatval(
+              $contract->get('field_salary')
+                ->first()->getValue()['value']
+            ),
+            2
+          )
+        ); 
+      }
 
       $contract_info = "(\${$salary} {$years}yrs)";
     } else {
