@@ -291,7 +291,8 @@ function the_log_utilities_cron() {
         'team' => $node->getOwnerId(),
         'years' => intval($node->get('field_bid_years')->getValue()[0]['value']),
         'owner_rank' => intval($node->getOwner()->get('field_rank')->getValue()[0]['value']),
-        'effective' => floatval($node->get('field_effective_salary')->getValue()[0]['value'])
+        'effective' => floatval($node->get('field_effective_salary')->getValue()[0]['value']),
+        'salary' => intval($node->get('field_bid_salary')->getValue()[0]['value'])
       ];
 
       $grouped_bids[$player_id][] = $bid;
@@ -304,7 +305,6 @@ function the_log_utilities_cron() {
 
   // Sort groups, award contract to winning bid
   foreach ($grouped_bids as $group) {
-    $debug = true;
     if (count($group) > 1) {
       $bid_priority = array(
         function ($a, $b) {
