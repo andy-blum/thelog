@@ -10,7 +10,6 @@ bundles:
   - contract
 entity_type: node
 global: true
-weight: 0
 flag_short: 'Put on Trade Block'
 flag_long: 'Add Tradable'
 flag_message: ''
@@ -18,6 +17,7 @@ unflag_short: 'Remove from Trade Block'
 unflag_long: 'Remove Tradable'
 unflag_message: ''
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:

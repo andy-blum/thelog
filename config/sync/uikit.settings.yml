@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: hhhuaAPa7xcyVUbqxvZz5xYMM4vSH2siU1hpLZyQsB4
 standard_sidebar_positions: holy-grail
 tablet_sidebar_positions: sidebar-left-stacked
 mobile_sidebar_positions: sidebars-stacked
@@ -9,5 +11,3 @@ secondary_tasks_style: uk-subnav-divider
 display_breadcrumbs: 1
 breakcrumbs_home_link: 1
 breakcrumbs_current_page: 0
-_core:
-  default_config_hash: hhhuaAPa7xcyVUbqxvZz5xYMM4vSH2siU1hpLZyQsB4

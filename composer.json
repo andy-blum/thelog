@@ -36,9 +36,11 @@
     "drupal/field_permissions": "^1.1",
     "drupal/flag": "^4.0@beta",
     "drupal/json_field": "^1.0@RC",
+    "drupal/jsonapi_extras": "^3.19",
     "drupal/mail_login": "^2.4",
     "drupal/masquerade": "^2.0@beta",
     "drupal/mimemail": "^1.0@alpha",
+    "drupal/oauth2_server": "^2.0@beta",
     "drupal/pathauto": "^1.8",
     "drupal/permissions_filter": "^1.2",
     "drupal/prepopulate": "^2.3",
@@ -58,7 +60,11 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "cweagans/composer-patches": true
+    }
   },
   "extra": {
     "drupal-scaffold": {

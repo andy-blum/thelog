@@ -10,7 +10,6 @@ bundles:
   - contract
 entity_type: node
 global: true
-weight: 0
 flag_short: Highlight
 flag_long: 'Mark contract as needing attention'
 flag_message: ''
@@ -18,6 +17,7 @@ unflag_short: Unhighlight
 unflag_long: 'Unmark contract as needing attention'
 unflag_message: ''
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:

@@ -10,7 +10,6 @@ bundles:
   - contract
 entity_type: node
 global: true
-weight: 0
 flag_short: Terminate
 flag_long: ''
 flag_message: ''
@@ -18,6 +17,7 @@ unflag_short: Un-Terminate
 unflag_long: 'If you can see this someone done fucked up.'
 unflag_message: ''
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: confirm
 flagTypeConfig:
@@ -32,6 +32,6 @@ linkTypeConfig:
   unflag_confirmation: 'Are you sure you want to un-terminate this contract?'
   flag_create_button: Terminate
   flag_delete_button: Un-terminate
+  flag_update_button: 'Update flagging'
   form_behavior: default
   edit_flagging: 'Edit flagging details'
-  flag_update_button: 'Update flagging'

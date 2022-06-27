@@ -13,10 +13,10 @@ bundle: fa_period_dates
 mode: default
 content:
   field_fa_deadlines:
+    type: datetime_default
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
 hidden:
   label: true

@@ -1,7 +1,14 @@
 uuid: 52aea732-8662-4486-b453-d90da20f2847
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.bid
+    - node.type.contract
+  module:
+    - flag
+    - node
+    - system
 id: team_owner
 label: 'Team Owner'
 weight: 2

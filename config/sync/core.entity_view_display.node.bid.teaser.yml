@@ -19,14 +19,14 @@ bundle: bid
 mode: teaser
 content:
   flag_bid_approved:
-    weight: 10
     settings: {  }
     third_party_settings: {  }
+    weight: 10
     region: content
   links:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+    weight: 100
     region: content
 hidden:
   field_bid_dts: true

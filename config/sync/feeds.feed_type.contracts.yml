@@ -14,8 +14,8 @@ dependencies:
 third_party_settings:
   feeds_tamper:
     tampers: {  }
-id: contracts
 label: Contracts
+id: contracts
 description: ''
 help: ''
 import_period: -1
@@ -30,81 +30,88 @@ parser: jsonpath
 parser_configuration:
   context:
     value: '$.*'
-  sources:
-    nid:
-      label: nid
-      value: nid
-    field_salary:
-      label: field_salary
-      value: field_salary
-    field_years_remaining:
-      label: field_years_remaining
-      value: field_years_remaining
-    field_status:
-      label: field_status
-      value: field_status
-  display_errors: false
   source_encoding:
     - auto
-  debug_mode: false
+  display_errors: false
   line_limit: 100
 processor: 'entity:node'
 processor_configuration:
+  values:
+    type: contract
   langcode: en
+  insert_new: 1
   update_existing: 2
   update_non_existent: _keep
+  skip_hash_check: true
+  authorize: false
   expire: -1
   owner_feed_author: false
   owner_id: 0
-  authorize: false
-  skip_hash_check: true
-  values:
-    type: contract
 custom_sources:
   nid:
-    label: nid
     value: nid
+    label: nid
     machine_name: nid
+    type: json
   field_salary:
-    label: field_salary
     value: field_salary
+    label: field_salary
     machine_name: field_salary
+    type: json
   field_years_remaining:
-    label: field_years_remaining
     value: field_years_remaining
+    label: field_years_remaining
     machine_name: field_years_remaining
+    type: json
   uid:
-    label: uid
     value: uid
+    label: uid
     machine_name: uid
+    type: json
   field_status:
-    label: field_status
     value: field_status
+    label: field_status
     machine_name: field_status
+    type: json
+  years:
+    value: years
+    label: years
+    machine_name: years
+    type: json
+  salary:
+    value: salary
+    label: salary
+    machine_name: salary
+    type: json
+  status:
+    value: status
+    label: status
+    machine_name: status
+    type: json
 mappings:
   -
     target: nid
     map:
       value: nid
+    settings: {  }
     unique:
       value: '1'
-    settings: {  }
-  -
-    target: field_salary
-    map:
-      value: field_salary
-    settings:
-      language: null
   -
     target: field_years_remaining
     map:
-      value: field_years_remaining
+      value: years
+    settings:
+      language: null
     unique: {  }
+  -
+    target: field_salary
+    map:
+      value: salary
     settings:
       language: null
   -
     target: field_status
     map:
-      value: field_status
+      value: status
     settings:
       language: null

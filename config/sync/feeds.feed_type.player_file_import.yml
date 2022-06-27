@@ -23,34 +23,34 @@ third_party_settings:
       e0d6bbef-cb9c-433c-961e-7c9fbe186175:
         default_value: FA
         only_if_empty: true
+        uuid: e0d6bbef-cb9c-433c-961e-7c9fbe186175
         plugin: default_value
         source: player_proteamabbreviation
         weight: 0
         label: 'Set value or default value'
-        uuid: e0d6bbef-cb9c-433c-961e-7c9fbe186175
       fc3948b8-7cfa-4472-a049-0c6de3d66a7a:
         operation: ucfirst
+        uuid: fc3948b8-7cfa-4472-a049-0c6de3d66a7a
         plugin: convert_case
         source: player_injurystatus
         weight: -9
         label: 'Convert case'
-        uuid: fc3948b8-7cfa-4472-a049-0c6de3d66a7a
       7c1ed8f4-fd9d-4a15-a8eb-10f58c4117fe:
         default_value: Unknown
         only_if_empty: true
+        uuid: 7c1ed8f4-fd9d-4a15-a8eb-10f58c4117fe
         plugin: default_value
         source: player_injurystatus
         weight: -10
         label: 'Set value or default value'
-        uuid: 7c1ed8f4-fd9d-4a15-a8eb-10f58c4117fe
       c2c16b2d-a7e0-4a66-9522-e1f7ee7284a6:
+        uuid: c2c16b2d-a7e0-4a66-9522-e1f7ee7284a6
         plugin: array_filter
         source: player_eligiblepositions
         weight: 0
         label: 'Filter items'
-        uuid: c2c16b2d-a7e0-4a66-9522-e1f7ee7284a6
-id: player_file_import
 label: 'Player File Import'
+id: player_file_import
 description: ''
 help: ''
 import_period: 86400
@@ -64,115 +64,97 @@ parser: jsonpath
 parser_configuration:
   context:
     value: '$.*'
-  sources:
-    player_firstname:
-      label: player.firstName
-      value: player.firstName
-    player_lastname:
-      label: player.lastName
-      value: player.lastName
-    player_id:
-      label: player.id
-      value: player.id
-    player_eligiblepositions:
-      label: player.eligiblePositions
-      value: player.eligiblePositions
-    player_proteamabbreviation:
-      label: player.proTeamAbbreviation
-      value: player.proTeamAbbreviation
-    player_injurystatus:
-      label: player.injuryStatus
-      value: player.injuryStatus
-    player_averagedraftposition:
-      label: player.averageDraftPosition
-      value: player.averageDraftPosition
-    player_rookie:
-      label: player.rookie
-      value: player.rookie
-    stats_projected:
-      label: stats.projected
-      value: stats.projected
-  display_errors: false
   source_encoding:
     - auto
-  debug_mode: false
+  display_errors: false
   line_limit: 100
 processor: 'entity:node'
 processor_configuration:
+  values:
+    type: player
   langcode: en
+  insert_new: 1
   update_existing: 2
   update_non_existent: _keep
+  skip_hash_check: false
+  authorize: false
   expire: -1
   owner_feed_author: false
   owner_id: 0
-  authorize: false
-  skip_hash_check: false
-  values:
-    type: player
 custom_sources:
   player_firstname:
-    label: player.firstName
     value: player.firstName
+    label: player.firstName
     machine_name: player_firstname
+    type: json
   player_lastname:
-    label: player.lastName
     value: player.lastName
+    label: player.lastName
     machine_name: player_lastname
+    type: json
   player_id:
-    label: player.id
     value: player.id
+    label: player.id
     machine_name: player_id
+    type: json
   player_eligiblepositions:
-    label: player.eligiblePositions
     value: player.eligiblePositions
+    label: player.eligiblePositions
     machine_name: player_eligiblepositions
+    type: json
   player_proteamabbreviation:
-    label: player.proTeamAbbreviation
     value: player.proTeamAbbreviation
+    label: player.proTeamAbbreviation
     machine_name: player_proteamabbreviation
+    type: json
   player_injurystatus:
-    label: player.injuryStatus
     value: player.injuryStatus
+    label: player.injuryStatus
     machine_name: player_injurystatus
+    type: json
   player_averagedraftposition:
-    label: player.averageDraftPosition
     value: player.averageDraftPosition
+    label: player.averageDraftPosition
     machine_name: player_averagedraftposition
+    type: json
   player_rookie:
-    label: player.rookie
     value: player.rookie
+    label: player.rookie
     machine_name: player_rookie
+    type: json
   projectedrawstats:
-    label: projectedRawStats
     value: projectedRawStats
+    label: projectedRawStats
     machine_name: projectedrawstats
+    type: json
   stats_projected:
-    label: stats.projected
     value: stats.projected
+    label: stats.projected
     machine_name: stats_projected
+    type: json
 mappings:
   -
     target: field_first_name
     map:
       value: player_firstname
-    unique: {  }
     settings:
       language: null
+    unique: {  }
   -
     target: field_last_name
     map:
       value: player_lastname
-    unique: {  }
     settings:
       language: null
+    unique: {  }
   -
     target: field_espn_id
     map:
       value: player_id
-    unique:
-      value: '1'
     settings:
       language: null
+    unique:
+      value: '1'
   -
     target: field_position
     map:

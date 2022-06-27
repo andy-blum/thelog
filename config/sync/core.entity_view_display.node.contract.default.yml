@@ -18,14 +18,14 @@ bundle: contract
 mode: default
 content:
   field_is_franchise_tagged:
-    weight: 1
+    type: boolean
     label: above
     settings:
       format: default
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    type: boolean
+    weight: 1
     region: content
 hidden:
   feeds_item: true

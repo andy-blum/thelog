@@ -10,13 +10,13 @@ type: 'canonical_entities:node'
 pattern: 'forum/[node:taxonomy_forums:entity:name]/[node:title]'
 selection_criteria:
   22455dee-fec0-4aaf-be23-9b02d6ae81c2:
-    id: node_type
-    bundles:
-      forum: forum
+    id: 'entity_bundle:node'
     negate: false
+    uuid: 22455dee-fec0-4aaf-be23-9b02d6ae81c2
     context_mapping:
       node: node
-    uuid: 22455dee-fec0-4aaf-be23-9b02d6ae81c2
+    bundles:
+      forum: forum
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -23,6 +23,9 @@ settings:
     -
       value: ir
       label: 'Injured Reserve'
+    -
+      value: rfa
+      label: 'Restricted Free Agent'
   allowed_values_function: ''
 module: options
 locked: false

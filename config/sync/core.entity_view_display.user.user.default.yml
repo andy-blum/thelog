@@ -24,10 +24,10 @@ bundle: user
 mode: default
 content:
   masquerade:
-    weight: 0
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   feeds_item: true
   field_contract_cap_remaining: true

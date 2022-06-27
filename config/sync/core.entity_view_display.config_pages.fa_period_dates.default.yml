@@ -13,12 +13,12 @@ bundle: fa_period_dates
 mode: default
 content:
   field_fa_deadlines:
-    weight: 0
+    type: datetime_default
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_default
+    weight: 0
     region: content
 hidden: {  }

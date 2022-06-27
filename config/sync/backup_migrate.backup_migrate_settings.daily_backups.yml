@@ -11,9 +11,6 @@ config:
     timestamp_format: Y_m_d--H_i_s
   compressor:
     compression: gzip
-  encrypt:
-    encrypt: 0
-    encrypt_password: ''
   utils:
     site_offline: false
   metadata:
@@ -50,3 +47,6 @@ config:
       - styles
       - 'config_*'
       - .htaccess
+  encrypt:
+    encrypt: 0
+    encrypt_password: ''

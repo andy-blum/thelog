@@ -1,7 +1,9 @@
 uuid: 4897a429-0152-4054-a3f6-05f8bfaeced1
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - flag
 id: commissioner
 label: Commissioner
 weight: 3

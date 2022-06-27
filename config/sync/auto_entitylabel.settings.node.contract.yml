@@ -2,8 +2,8 @@ status: 1
 pattern: '[node:field_player:entity:field_first_name] [node:field_player:entity:field_last_name] ($[node:field_salary:value], [node:field_years_remaining:value]yr)'
 escape: false
 preserve_titles: false
-save: 1
-chunk: '50'
 dependencies:
   config:
     - node.type.contract
+save: 1
+chunk: '50'

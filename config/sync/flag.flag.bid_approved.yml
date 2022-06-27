@@ -10,7 +10,6 @@ bundles:
   - bid
 entity_type: node
 global: true
-weight: 0
 flag_short: 'Approve Bid'
 flag_long: 'Approve Bid'
 flag_message: ''
@@ -18,6 +17,7 @@ unflag_short: 'Unapprove Bid'
 unflag_long: 'Unapprove Bid'
 unflag_message: ''
 unflag_denied_text: ''
+weight: 0
 flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:

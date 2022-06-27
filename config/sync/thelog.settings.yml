@@ -1,16 +1,16 @@
+favicon:
+  mimetype: image/png
+  path: 'public://log-circle.png'
+  use_default: false
 features:
-  node_user_picture: false
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
+  node_user_picture: false
 logo:
-  use_default: false
   path: 'public://log-logo.png'
-logo_preview: ''
-favicon:
   use_default: false
-  path: 'public://log-circle.png'
-  mimetype: image/png
+logo_preview: ''
 favicon_preview: ''
 layout_advanced: 0
 standard_sidebar_positions: null
