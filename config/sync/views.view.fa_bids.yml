@@ -554,7 +554,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       empty:
         area:
@@ -827,6 +827,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      enabled: true
       fields:
         field_first_name:
           id: field_first_name
@@ -1410,13 +1411,15 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      enabled: true
       display_extenders: {  }
       path: bids
       menu:
         type: normal
         title: 'FA Bids'
         description: ''
-        weight: 0
+        weight: -47
+        enabled: true
         expanded: false
         menu_name: main
         parent: ''
