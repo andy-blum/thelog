@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "767601b5f177e3de045ea5fabd43a835",
+    "content-hash": "45960af821038ab35bab911d065b28b6",
     "packages": [
         {
             "name": "arthurkushman/query-path",
@@ -2271,11 +2271,17 @@
         },
         {
             "name": "drupal/backup_migrate",
-            "version": "dev-5.0.x",
+            "version": "5.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/backup_migrate.git",
-                "reference": "682924e41f40f8bdd08a9326b2d8f4d1f66b7034"
+                "reference": "5.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/backup_migrate-5.0.3.zip",
+                "reference": "5.0.3",
+                "shasum": "bc263f601f7a21248d4000a372d04a417df7e326"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10"
@@ -2285,15 +2291,12 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-5.0.x": "5.0.x-dev"
-                },
                 "drupal": {
-                    "version": "5.0.3+1-dev",
-                    "datestamp": "1675361787",
+                    "version": "5.0.3",
+                    "datestamp": "1671366510",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -10330,7 +10333,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "drupal/auto_entitylabel": 10,
-        "drupal/backup_migrate": 20,
         "drupal/cer": 15,
         "drupal/feeds": 15,
         "drupal/feeds_ex": 15,
