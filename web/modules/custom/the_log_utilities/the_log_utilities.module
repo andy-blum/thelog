@@ -53,6 +53,16 @@ function the_log_utilities_form_alter(&$form, FormStateInterface $form_state, $f
       $form['actions']['submit']['#submit'][] = 'the_log_utilities_dts_promotion';
     }
   }
+
+  if (in_array($form_id, ['node_contract_form', 'node_contract_edit_form'])) {
+    unset($form['meta']);
+    unset($form['menu']);
+    unset($form['book']);
+    unset($form['revision_log']);
+    unset($form['uid']['#group']);
+    $form['author']['#open'] = true;
+    $form['author']['#weight'] = -50;
+  }
 }
 
 /**
