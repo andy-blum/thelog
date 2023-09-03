@@ -39,6 +39,8 @@ class FlagSubscriber implements EventSubscriberInterface {
         'field_player' => $player_id,
       ]]);
 
+      $entity->delete();
+
       // Redirect to new contract form.
       $response = new RedirectResponse($url->toString());
       $response->send();
