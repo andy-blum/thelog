@@ -1,25 +1,23 @@
-uuid: 97e7cc1c-ca96-4671-b0dd-1854b79a8c47
+uuid: 05cdf7b3-71fe-4449-a418-76891aadbe8e
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.table_cell
     - field.storage.node.field_first_name
-    - field.storage.node.field_is_franchise_tagged
     - field.storage.node.field_last_name
     - field.storage.node.field_salary
-    - field.storage.taxonomy_term.field_roster_order
-    - flag.flag.terminate_contract
+    - field.storage.node.field_status
+    - field.storage.node.field_years_remaining
+    - flag.flag.contract_needs_attention
     - node.type.contract
-    - system.menu.main
   module:
     - flag
     - node
     - options
-    - taxonomy
     - user
-id: restricted_free_agents
-label: 'Restricted Free Agents'
+id: highlighted
+label: Highlighted
 module: views
 description: ''
 tag: ''
@@ -28,63 +26,12 @@ base_field: nid
 display:
   default:
     id: default
-    display_title: Master
+    display_title: Default
     display_plugin: default
     position: 0
     display_options:
-      title: 'Restricted Free Agents'
+      title: 'DTS Rosters'
       fields:
-        rendered_entity:
-          id: rendered_entity
-          table: node
-          field: rendered_entity
-          relationship: field_player
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: rendered_entity
-          label: Player
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          view_mode: table_cell
         field_first_name:
           id: field_first_name
           table: node__field_first_name
@@ -156,11 +103,11 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Player
+          label: 'Last Name'
           exclude: true
           alter:
             alter_text: false
-            text: '{{ rendered_entity }}'
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -211,19 +158,74 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_roster_order:
-          id: field_roster_order
-          table: taxonomy_term__field_roster_order
-          field: field_roster_order
-          relationship: field_position
+        flagged:
+          id: flagged
+          table: flagging
+          field: flagged
+          relationship: flag_relationship
           group_type: group
           admin_label: ''
-          plugin_id: field
-          label: Position
+          entity_type: flagging
+          plugin_id: flag_flagged
+          label: Flagged
+          exclude: true
+          alter:
+            alter_text: true
+            text: '{{ flagged|lower }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: true
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          type: true-false
+          type_custom_true: ''
+          type_custom_false: ''
+          not: 0
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
+          relationship: field_player
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: rendered_entity
+          label: Player
           exclude: false
           alter:
             alter_text: true
-            text: '{{ name_1 }}'
+            text: "{% if flagged == 'true' %}\r\n  <div class=\"uk-text-danger\">{{ rendered_entity }}</div>\r\n{% else %}\r\n  <div>{{ rendered_entity }}</div>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -260,12 +262,63 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
+          view_mode: table_cell
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: field
+          label: Owner
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
+            link: false
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -341,17 +394,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
+        field_years_remaining:
+          id: field_years_remaining
+          table: node__field_years_remaining
+          field: field_years_remaining
+          relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: name
           plugin_id: field
-          label: 'Prev Owner'
+          label: 'Years Remaining'
           exclude: false
           alter:
             alter_text: false
@@ -393,9 +444,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: user_name
+          type: number_integer
           settings:
-            link_to_entity: false
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -406,15 +458,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_is_franchise_tagged:
-          id: field_is_franchise_tagged
-          table: node__field_is_franchise_tagged
-          field: field_is_franchise_tagged
+        field_status:
+          id: field_status
+          table: node__field_status
+          field: field_status
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Is Franchise Tagged'
+          label: Status
           exclude: false
           alter:
             alter_text: false
@@ -456,11 +508,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: boolean
-          settings:
-            format: custom
-            format_custom_false: ''
-            format_custom_true: FT
+          type: list_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -480,57 +529,7 @@ display:
           admin_label: ''
           entity_type: flagging
           plugin_id: flag_link
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-        operations:
-          id: operations
-          table: node
-          field: operations
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: entity_operations
-          label: Operations
+          label: Flag
           exclude: false
           alter:
             alter_text: false
@@ -571,66 +570,10 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          destination: false
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: include
-          selected_actions:
-            - node_delete_action
       pager:
         type: none
         options:
           offset: 0
-          items_per_page: null
       exposed_form:
         type: basic
         options:
@@ -649,33 +592,7 @@ display:
         type: none
         options: {  }
       empty: {  }
-      sorts:
-        field_roster_order_value:
-          id: field_roster_order_value
-          table: taxonomy_term__field_roster_order
-          field: field_roster_order_value
-          relationship: field_position
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: ASC
-          expose:
-            label: ''
-            field_identifier: field_roster_order_value
-          exposed: false
-        field_salary_value:
-          id: field_salary_value
-          table: node__field_salary
-          field: field_salary_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: standard
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: field_salary_value
-          exposed: false
+      sorts: {  }
       arguments: {  }
       filters:
         status:
@@ -703,16 +620,17 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        combine:
-          id: combine
-          table: views
-          field: combine
-          relationship: none
+        flagged:
+          id: flagged
+          table: flagging
+          field: flagged
+          relationship: flag_relationship
           group_type: group
           admin_label: ''
-          plugin_id: combine
-          operator: word
-          value: ''
+          entity_type: flagging
+          plugin_id: flag_filter
+          operator: '='
+          value: '1'
           group: 1
           exposed: false
           expose:
@@ -729,7 +647,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -742,121 +659,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          fields:
-            field_first_name: field_first_name
-            field_last_name: field_last_name
-        field_status_value:
-          id: field_status_value
-          table: node__field_status
-          field: field_status_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: list_field
-          operator: or
-          value:
-            rfa: rfa
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
       style:
         type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          columns:
-            rendered_entity: rendered_entity
-            field_last_name: field_last_name
-            name_1: name_1
-            field_roster_order: field_roster_order
-            field_salary: field_salary
-            name: name
-            link_flag: link_flag
-          default: '-1'
-          info:
-            rendered_entity:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_last_name:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            name_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_roster_order:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            field_salary:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            name:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            link_flag:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-          override: true
-          sticky: false
-          summary: ''
-          empty_table: false
-          caption: ''
-          description: ''
       row:
         type: fields
       query:
@@ -887,37 +691,17 @@ display:
           entity_type: node
           plugin_id: flag_relationship
           required: false
-          flag: terminate_contract
-          user_scope: any
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: author
-          entity_type: node
-          entity_field: uid
-          plugin_id: standard
-          required: false
-        field_position:
-          id: field_position
-          table: node__field_position
-          field: field_position
-          relationship: field_player
-          group_type: group
-          admin_label: 'field_position: Taxonomy term'
-          plugin_id: standard
-          required: false
+          flag: contract_needs_attention
+          user_scope: current
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -938,10 +722,10 @@ display:
         - 'config:core.entity_view_display.node.webform.default'
         - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_first_name'
-        - 'config:field.storage.node.field_is_franchise_tagged'
         - 'config:field.storage.node.field_last_name'
         - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.taxonomy_term.field_roster_order'
+        - 'config:field.storage.node.field_status'
+        - 'config:field.storage.node.field_years_remaining'
   page_1:
     id: page_1
     display_title: Page
@@ -949,23 +733,12 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: rfa
-      menu:
-        type: normal
-        title: 'Restricted Free Agents'
-        description: ''
-        weight: -46
-        enabled: true
-        expanded: false
-        menu_name: main
-        parent: ''
-        context: '0'
+      path: highlighted
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -986,7 +759,7 @@ display:
         - 'config:core.entity_view_display.node.webform.default'
         - 'config:core.entity_view_display.node.webform.teaser'
         - 'config:field.storage.node.field_first_name'
-        - 'config:field.storage.node.field_is_franchise_tagged'
         - 'config:field.storage.node.field_last_name'
         - 'config:field.storage.node.field_salary'
-        - 'config:field.storage.taxonomy_term.field_roster_order'
+        - 'config:field.storage.node.field_status'
+        - 'config:field.storage.node.field_years_remaining'

@@ -1,24 +1,16 @@
 {
   "folders": [
     {
-      "name": "Theme Root",
-      "path": "./web/themes/custom/thelog"
+      "name": "Project Root",
+      "path": "."
     },
     {
       "name": "Modules",
       "path": "./web/modules"
     },
     {
-      "name": "Project Root",
-      "path": "."
-    },
-    {
-      "name": "ESPN API Client",
-      "path": "../ESPN-Fantasy-Football-API"
-    },
-    {
-      "name": "LOG Scraper",
-      "path": "./scraper"
+      "name": "Theme Root",
+      "path": "./web/themes/custom/thelog"
     }
   ],
   "settings": {

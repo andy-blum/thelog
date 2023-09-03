@@ -2,5 +2,5 @@ _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 theme: thelog
 defaults:
-  sender: SMTPMailSystem
+  sender: mime_mail
   formatter: mime_mail

@@ -5,7 +5,7 @@ smtp_host: log.football
 smtp_hostbackup: ''
 smtp_port: '465'
 smtp_protocol: ssl
-smtp_autotls: false
+smtp_autotls: true
 smtp_timeout: 30
 smtp_username: ''
 smtp_password: ''
@@ -15,6 +15,7 @@ smtp_client_hostname: ''
 smtp_client_helo: ''
 smtp_allowhtml: '0'
 smtp_test_address: ''
+smtp_reroute_address: ''
 smtp_debugging: false
 prev_mail_system: php_mail
 smtp_keepalive: false

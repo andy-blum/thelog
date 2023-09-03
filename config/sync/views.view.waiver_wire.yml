@@ -411,7 +411,7 @@ display:
           entity_type: node
           plugin_id: node_bulk_form
           label: Actions
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
